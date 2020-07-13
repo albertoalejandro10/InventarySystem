@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Ingreso logotipo -->
-    <a href="" class="logo">
+    <a href="inicio" class="logo">
         <!-- Logo mini -->
         <span class="logo-mini">
             <img src="views/img/plantilla/icono-blanco.png" class="img-responsive" style="padding:10px" alt="icono blanco">
