@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ProjectNetherlands - Stockpile</title>
+  <title>Stockpile</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="icon" href="views/img/plantilla/icono-negro.png">
 
     <!-- Plugins de CSS -->
 
@@ -45,39 +46,51 @@
 
 
 </head>
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
 <!-- Site wrapper -->
-<div class="wrapper">
+
 
 
     <?php
+      if(isset($_SESSION["iniciarSesion"]) && $_SESSION['iniciarSesion'] == "ok"){
 
-      /*Cabecera*/
-      include "modulos/cabeza.php";
-      
-      /*Menu*/
-      include "modulos/menu.php";
+        echo '<div class="wrapper">';
 
-      /*Modulo contenido*/
-      if(isset($_GET["ruta"])){
-        if($_GET["ruta"] == "inicio" ||
-           $_GET["ruta"] == "usuarios" ||
-           $_GET["ruta"] == "categorias" ||
-           $_GET["ruta"] == "productos" ||
-           $_GET["ruta"] == "clientes" ||
-           $_GET["ruta"] == "ventas" ||
-           $_GET["ruta"] == "crear-venta" ||
-           $_GET["ruta"] == "reportes"){
-
-
-          include "modulos/".$_GET["ruta"].".php";
+        /*Cabecera*/
+        include "modulos/cabeza.php";
         
-        
+        /*Menu*/
+        include "modulos/menu.php";
+
+        /*Modulo contenido*/
+        if(isset($_GET["ruta"])){
+          if($_GET["ruta"] == "inicio" ||
+            $_GET["ruta"] == "usuarios" ||
+            $_GET["ruta"] == "categorias" ||
+            $_GET["ruta"] == "productos" ||
+            $_GET["ruta"] == "clientes" ||
+            $_GET["ruta"] == "ventas" ||
+            $_GET["ruta"] == "crear-venta" ||
+            $_GET["ruta"] == "reportes"){
+
+
+            include "modulos/".$_GET["ruta"].".php";
+          
+          }else{
+            include "modulos/404.php";
+          }
+        }else{
+          include "modulos/inicio.php";
         }
-      }
 
-      /*Footer*/
-      include "modulos/footer.php";
+        /*Footer*/
+        include "modulos/footer.php";
+
+        echo '</div>';
+      
+      }else{
+        include "modulos/login.php";
+      }
     ?>
 
 
