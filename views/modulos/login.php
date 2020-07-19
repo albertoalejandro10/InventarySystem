@@ -26,5 +26,9 @@
 
       </div>
     </form>
+    <?php
+      $login = new ControladorUsuarios();
+      $login->ctrIngresoUsuario();
+    ?>
   </div>
 </div>
