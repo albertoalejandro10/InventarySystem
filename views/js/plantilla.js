@@ -1,4 +1,4 @@
 
 
-    /* Sidebar menu */
-  $('.sidebar-menu').tree()
+  /* Sidebar menu */
+  $('.sidebar-menu').tree();

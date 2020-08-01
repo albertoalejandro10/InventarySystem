@@ -28,7 +28,7 @@
               
               <thead>
                 <tr>
-                  <th id='first-column-th'>#</th>
+                  <th id="first-column-th">#</th>
                   <th>Nombre</th>
                   <th>Usuario</th>
                   <th>Foto</th>
