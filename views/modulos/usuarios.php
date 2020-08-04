@@ -125,7 +125,7 @@
         <div class="modal-body">
           <div class="box-body">
 
-          <!-- Entrada para el usuario -->
+          <!-- Entrada para el nombre -->
             <div class="form-group">
               <div class="input-group">
 
@@ -135,7 +135,7 @@
             </div>
 
 
-            <!-- Entrada para el nombre -->
+            <!-- Entrada para el usuario -->
             <div class="form-group">
               <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-key"></i></span>
@@ -170,9 +170,9 @@
             <!-- Entrada para subir foto -->
             <div class="form-group">
               <div class="panel">SUBIR FOTO</div>
-              <input type="file" id="nuevaFoto" name="nuevaFoto">
-              <p class="help-block">Peso máximo de la foto 200MB</p>
-              <img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
+              <input type="file" class="nuevaFoto" name="nuevaFoto">
+              <p class="help-block">Peso máximo de la foto 2MB</p>
+              <img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
 
@@ -187,6 +187,12 @@
           <button type="submit" class="btn btn-primary">Guardar Usuario</button>
         </div>
       </div>
+
+      <?php
+        $crearUsuario = new ControladorUsuarios();
+        $crearUsuario -> ctrCrearUsuario();
+
+      ?>
 
       </form>
 
