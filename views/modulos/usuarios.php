@@ -230,7 +230,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" required>
+                    <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
                 </div>
               </div>
 
@@ -239,7 +239,8 @@
               <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña" required>
+                    <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
+                    <input type="hidden" id="passwordActual" name="passwordActual">
                 </div>
               </div>
 
@@ -251,11 +252,14 @@
 
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
-                    <select class="form-control input-lg" name="nuevoPerfil">
+                    <select class="form-control input-lg" name="editarPerfil">
 
-                      <option value="" id="editarPerfil">Seleccionar perfil</option>
+                      <option value="" id="editarPerfil"></option>
+
                       <option value="Administrador">Administrador</option>
+
                       <option value="Especial">Especial</option>
+
                       <option value="Vendedor">Vendedor</option>
                     
                     </select>
@@ -269,6 +273,7 @@
                 <input type="file" class="nuevaFoto" name="editarFoto">
                 <p class="help-block">Peso máximo de la foto 2MB</p>
                 <img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                <input type="hidden" name="fotoActual" id="fotoActual">
               </div>
 
           </div>
@@ -283,12 +288,12 @@
       </div>
 
 
-<!-- 
-      <?php
-        $crearUsuario = new ControladorUsuarios();
-        $crearUsuario -> ctrCrearUsuario();
 
-      ?> -->
+      <?php
+        $editarUsuario = new ControladorUsuarios();
+        $editarUsuario -> ctrEditarUsuario();
+
+      ?>
 
       </form>
 
