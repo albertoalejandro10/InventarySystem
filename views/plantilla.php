@@ -65,7 +65,8 @@
   <!-- SweetAlert2 -->
   <script src="views/plugins/sweetalert2/sweetalert2.all.js"></script>
 
-
+  <!-- By default SweetAlert2 doesn't support IE. Soporte para InternetExplorer-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
 
 
