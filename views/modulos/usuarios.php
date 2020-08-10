@@ -65,9 +65,18 @@
                     }
         
                     
-                    echo '<td>'.$value["perfil"].'</td>
-                    <td><button class="btn btn-success btn-xs">Activado</button></td>
-                    <td>'.$value["ultimo_login"].'</td>
+                    echo '<td>'.$value["perfil"].'</td>';
+
+                    if($value["estado"] != 0){
+
+                      echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
+                    }else{
+                      echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
+
+                    }
+
+
+                    echo '<td>'.$value["ultimo_login"].'</td>
                     <td>
                       <div class="btn-group">
                         <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
