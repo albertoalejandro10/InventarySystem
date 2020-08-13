@@ -1,5 +1,6 @@
-
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
     <section class="content-header">        
         <h1>
             Administrar categorías
@@ -85,7 +86,7 @@
     </section>
   </div>
 
-  <!-- Modal agregar categoría -->
+  <!-- Modal agregar usuario -->
 
   <!-- Modal -->
 <div id="modalAgregarCategoria" class="modal fade" role="dialog">
@@ -115,7 +116,7 @@
               <div class="input-group">
 
                   <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                  <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar categoría" id="nuevaCategoria" required>
+                  <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar categoría" required>
               </div>
             </div>
             
@@ -129,13 +130,6 @@
           <button type="submit" class="btn btn-primary">Guardar Categoría</button>
         </div>
       </div>
-
-      <?php
-
-        $crearCategoria = new ControladorCategorias();
-        $crearCategoria->ctrCrearCategoria();
-
-      ?>
 
       </form>
 

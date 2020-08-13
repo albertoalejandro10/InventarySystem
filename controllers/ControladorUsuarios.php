@@ -186,7 +186,7 @@ class ControladorUsuarios
     {
         $tabla = "usuarios";
 
-        $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+        $respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
         return $respuesta;
     }
