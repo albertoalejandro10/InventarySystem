@@ -125,7 +125,6 @@
 
 <script src="views/js/plantilla.js"></script>
 
-
 <script src="views/js/usuarios.js"></script>
 
 <script src="views/js/categorias.js"></script>
