@@ -131,7 +131,7 @@
 
 <script src="views/js/categorias.js"></script>
 
-
+<script src="views/js/productos.js"></script>
 
 
 </body>

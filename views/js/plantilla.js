@@ -4,7 +4,7 @@
   $('.sidebar-menu').tree();
 
 
-  $('#tablas').DataTable({
+  $('.tablas').DataTable({
       "language": {
 
       "sProcessing":     "Procesando...",

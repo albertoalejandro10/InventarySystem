@@ -23,7 +23,7 @@
           </div>
           
           <div class="box-body">
-            <table id="tablas" class="table table-bordered table-striped dt-responsive">
+            <table class="table table-bordered table-striped dt-responsive tablas">
               
               <thead>
                 <tr>

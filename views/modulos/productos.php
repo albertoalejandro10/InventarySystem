@@ -24,7 +24,7 @@
           </div>
           
           <div class="box-body">
-            <table id="tablas" class="table table-bordered table-striped dt-responsive">
+            <table class="table table-bordered table-striped dt-responsive tablas tablaProductos">
               
               <thead>
                 <tr>
@@ -42,7 +42,7 @@
               </thead>
 
               <tbody>
-
+<!-- 
               <?php
 
               $item = null;
@@ -65,8 +65,8 @@
       
                        echo '<td>'.$categoria["categoria"].'</td>
                         <td>'.$value["stock"].'</td>
-                        <td>'.$value["precio_compra"].'</td>
-                        <td>'.$value["precio_venta"].'</td>
+                        <td>$'.$value["precio_compra"].'</td>
+                        <td>$'.$value["precio_venta"].'</td>
                         <td>'.$value["fecha"].'</td>
                         <td>
       
@@ -86,7 +86,7 @@
 
 
               ?>
-
+ -->
 
               </tbody>
 

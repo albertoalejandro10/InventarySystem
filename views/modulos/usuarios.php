@@ -24,7 +24,7 @@
           </div>
           
           <div class="box-body">
-            <table id="tablas" class="table table-bordered table-striped dt-responsive" width="100%">
+            <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
               
               <thead>
                 <tr>
