@@ -31,7 +31,7 @@ $("#nuevaCategoria").change(function(){
 	})
 })
 
-$(".btnEditarCategoria").click(function(){
+$(".tablas").on("click", ".btnEditarCategoria", function(){
 	
 	var idCategoria = $(this).attr("idCategoria");
 
@@ -57,7 +57,7 @@ $(".btnEditarCategoria").click(function(){
 })
 
 /* Eliminar categoria */
-$(".btnEliminarCategoria").click(function(){
+$(".tablas").on("click", ".btnEliminarCategoria", function(){
 
 	var idCategoria = $(this).attr("idCategoria");
 
