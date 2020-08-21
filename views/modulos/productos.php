@@ -73,12 +73,36 @@
         <div class="modal-body">
           <div class="box-body">
 
+            <!-- Entrada para seleccionar su categoria -->
+            <div class="form-group">
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <select class="form-control input-lg" id="nuevaCategoriaProducto" name="nuevaCategoria">
+                    <option value="">Seleccionar categoría</option>
+
+                    <?php
+                      $item = null;
+                      $valor = null;
+
+                      $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                      foreach($categorias as $key => $value){
+                        echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+                      }
+
+                    ?>
+
+
+                  </select>
+              </div>
+            </div>
+
           <!-- Entrada para el codigo -->
             <div class="form-group">
               <div class="input-group">
 
                   <span class="input-group-addon"><i class="fa fa-code"></i></span>
-                  <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar codígo" required>
+                  <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar codígo" readonly required>
               </div>
             </div>
 
@@ -91,20 +115,6 @@
               </div>
             </div>
 
-
-            <!-- Entrada para seleccionar su categoria -->
-            <div class="form-group">
-              <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                  <select class="form-control input-lg" name="nuevaCategoria">
-                    <option value="">Seleccionar categoría</option>
-
-                    <option value="Taladros">Taladros</option>
-                    <option value="Andamios">Andamios</option>
-                    <option value="Equipos para construccion">Equipos para construccion</option>
-                  </select>
-              </div>
-            </div>
 
             <!-- Entrada para el Stock -->
             <div class="form-group">
@@ -119,7 +129,7 @@
               <div class="col-xs-6">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
-                    <input type="number" class="form-control input-lg" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" required>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" required>
                 </div>
               </div>
 
@@ -127,7 +137,7 @@
                 <div class="col-xs-6">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
-                    <input type="number" class="form-control input-lg" name="nuevoPrecioVenta" min="0" placeholder="Precio de venta" required>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0" placeholder="Precio de venta" required>
                   </div>
             <!-- Check box para porcentaje -->
                   </br>
@@ -172,9 +182,14 @@
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar producto</button>
         </div>
-      </div>
 
       </form>
+      </div>
+
+      <?php
+        $crearProducto = new ControladorProductos();
+        $crearProducto->ctrCrearProducto();
+      ?>
 
   </div>
 </div>

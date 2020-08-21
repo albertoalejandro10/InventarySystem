@@ -53,98 +53,96 @@ $('.tablaProductos').DataTable( {
 } );
 
 
-// /*CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO*/
-// $("#nuevaCategoria").change(function(){
+/*CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO*/
+$("#nuevaCategoriaProducto").change(function(){
 
-// 	var idCategoria = $(this).val();
+	var idCategoria = $(this).val();
 
-// 	var datos = new FormData();
-//   	datos.append("idCategoria", idCategoria);
+	var datos = new FormData();
+  	datos.append("idCategoria", idCategoria);
 
-//   	$.ajax({
+  	$.ajax({
 
-//       url:"ajax/productos.ajax.php",
-//       method: "POST",
-//       data: datos,
-//       cache: false,
-//       contentType: false,
-//       processData: false,
-//       dataType:"json",
-//       success:function(respuesta){
+      url:"ajax/productos.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
 
-//       	if(!respuesta){
+		if(!respuesta){
 
-//       		var nuevoCodigo = idCategoria+"01";
-//       		$("#nuevoCodigo").val(nuevoCodigo);
+			var nuevoCodigo = idCategoria + "01";
+			$("#nuevoCodigo").val(nuevoCodigo);
 
-//       	}else{
+		}else{
 
-//       		var nuevoCodigo = Number(respuesta["codigo"]) + 1;
-//           	$("#nuevoCodigo").val(nuevoCodigo);
+			var nuevoCodigo = Number(respuesta["codigo"]) + 1;
+			$("#nuevoCodigo").val(nuevoCodigo);
+		}
+    }
 
-//       	}
-                
-//       }
+  	})
 
-//   	})
+})
 
-// })
+/* AGREGANDO PRECIO DE VENTA */
+$("#nuevoPrecioCompra, #editarPrecioCompra").change(function(){
 
-// /* AGREGANDO PRECIO DE VENTA */
-// $("#nuevoPrecioCompra, #editarPrecioCompra").change(function(){
+	if($(".porcentaje").prop("checked")){
 
-// 	if($(".porcentaje").prop("checked")){
+		var valorPorcentaje = $(".nuevoPorcentaje").val();
 
-// 		var valorPorcentaje = $(".nuevoPorcentaje").val();
+		var porcentaje = Number(($("#nuevoPrecioCompra").val()*valorPorcentaje/100))+Number($("#nuevoPrecioCompra").val());
+
+		var editarPorcentaje = Number(($("#editarPrecioCompra").val()*valorPorcentaje/100))+Number($("#editarPrecioCompra").val());
+
+		$("#nuevoPrecioVenta").val(porcentaje);
+		$("#nuevoPrecioVenta").prop("readonly",true);
+
+		$("#editarPrecioVenta").val(editarPorcentaje);
+		$("#editarPrecioVenta").prop("readonly",true);
+
+	}
+
+})
+
+/*CAMBIO DE PORCENTAJE*/
+$(".nuevoPorcentaje").change(function(){
+
+	if($(".porcentaje").prop("checked")){
+
+		var valorPorcentaje = $(this).val();
 		
-// 		var porcentaje = Number(($("#nuevoPrecioCompra").val()*valorPorcentaje/100))+Number($("#nuevoPrecioCompra").val());
+		var porcentaje = Number(($("#nuevoPrecioCompra").val()*valorPorcentaje/100))+Number($("#nuevoPrecioCompra").val());
 
-// 		var editarPorcentaje = Number(($("#editarPrecioCompra").val()*valorPorcentaje/100))+Number($("#editarPrecioCompra").val());
+		var editarPorcentaje = Number(($("#editarPrecioCompra").val()*valorPorcentaje/100))+Number($("#editarPrecioCompra").val());
 
-// 		$("#nuevoPrecioVenta").val(porcentaje);
-// 		$("#nuevoPrecioVenta").prop("readonly",true);
+		$("#nuevoPrecioVenta").val(porcentaje);
+		$("#nuevoPrecioVenta").prop("readonly",true);
 
-// 		$("#editarPrecioVenta").val(editarPorcentaje);
-// 		$("#editarPrecioVenta").prop("readonly",true);
+		$("#editarPrecioVenta").val(editarPorcentaje);
+		$("#editarPrecioVenta").prop("readonly",true);
 
-// 	}
+	}
 
-// })
+})
 
-// /*CAMBIO DE PORCENTAJE*/
-// $(".nuevoPorcentaje").change(function(){
+$(".porcentaje").on("ifUnchecked",function(){
 
-// 	if($(".porcentaje").prop("checked")){
+	$("#nuevoPrecioVenta").prop("readonly",false);
+	$("#editarPrecioVenta").prop("readonly",false);
 
-// 		var valorPorcentaje = $(this).val();
-		
-// 		var porcentaje = Number(($("#nuevoPrecioCompra").val()*valorPorcentaje/100))+Number($("#nuevoPrecioCompra").val());
+})
 
-// 		var editarPorcentaje = Number(($("#editarPrecioCompra").val()*valorPorcentaje/100))+Number($("#editarPrecioCompra").val());
+$(".porcentaje").on("ifChecked",function(){
 
-// 		$("#nuevoPrecioVenta").val(porcentaje);
-// 		$("#nuevoPrecioVenta").prop("readonly",true);
+	$("#nuevoPrecioVenta").prop("readonly",true);
+	$("#editarPrecioVenta").prop("readonly",true);
 
-// 		$("#editarPrecioVenta").val(editarPorcentaje);
-// 		$("#editarPrecioVenta").prop("readonly",true);
-
-// 	}
-
-// })
-
-// $(".porcentaje").on("ifUnchecked",function(){
-
-// 	$("#nuevoPrecioVenta").prop("readonly",false);
-// 	$("#editarPrecioVenta").prop("readonly",false);
-
-// })
-
-// $(".porcentaje").on("ifChecked",function(){
-
-// 	$("#nuevoPrecioVenta").prop("readonly",true);
-// 	$("#editarPrecioVenta").prop("readonly",true);
-
-// })
+})
 
 // /*SUBIENDO LA FOTO DEL PRODUCTO*/
 
