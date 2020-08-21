@@ -126,18 +126,18 @@
 
             <!-- Entrada para el precio compra -->
             <div class="form-group row">
-              <div class="col-xs-6">
+              <div class="col-xs-12 col-sm-6">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" required>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0" step="any" placeholder="Precio de compra" required>
                 </div>
               </div>
 
             <!-- Entrada para el precio venta -->
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0" placeholder="Precio de venta" required>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0" step="any" placeholder="Precio de venta" required>
                   </div>
             <!-- Check box para porcentaje -->
                   </br>
