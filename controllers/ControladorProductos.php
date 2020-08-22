@@ -21,9 +21,65 @@ class ControladorProductos{
 			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioCompra"]) &&
 			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
 
+				$ruta = "views/img/productos/default/anonymous.png";
 
-			   	$ruta = "views/img/productos/default/anonymous.png";
+				if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
+				 list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
+
+				 $nuevoAncho = 500;
+				 $nuevoAlto = 500;
+
+				 /* creamos el directorio donde vamos a guardar la foto del usuario */
+
+				 $directorio = "views/img/productos/".$_POST["nuevoCodigo"];
+
+				 mkdir($directorio, 0755);
+
+				 /*
+				 de acuerdo al tipo de imagen aplicamos las funciones por defecto de php
+				 */
+
+				 if($_FILES["nuevaImagen"]["type"] == "image/jpeg"){
+
+					 /*guardamos la imagen en el directorio*/
+
+					 $aleatorio = mt_rand(100,999);
+
+					 $ruta = "views/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
+
+					 $origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);						
+
+					 $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+					 imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+					 imagejpeg($destino, $ruta);
+
+				
+				}
+
+				 if($_FILES["nuevaImagen"]["type"] == "image/png"){
+
+					 /*guardamos la imagen en el directorio*/
+
+					 $aleatorio = mt_rand(100,999);
+
+					 $ruta = "views/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
+
+					 $origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);						
+
+					 $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+					 imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+					 imagepng($destino, $ruta);
+
+				}
+
+			 }
+
+			 
 				$tabla = "productos";
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],

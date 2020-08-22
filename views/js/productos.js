@@ -144,51 +144,51 @@ $(".porcentaje").on("ifChecked",function(){
 
 })
 
-// /*SUBIENDO LA FOTO DEL PRODUCTO*/
+/*SUBIENDO LA FOTO DEL PRODUCTO*/
 
-// $(".nuevaImagen").change(function(){
+$(".nuevaImagen").change(function(){
 
-// 	var imagen = this.files[0];
+	var imagen = this.files[0];
 	
-// 	/*VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG*/
+	/*VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG*/
 
-//   	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
+  	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
 
-//   		$(".nuevaImagen").val("");
+  		$(".nuevaImagen").val("");
 
-//   		 swal({
-// 		      title: "Error al subir la imagen",
-// 		      text: "¡La imagen debe estar en formato JPG o PNG!",
-// 		      type: "error",
-// 		      confirmButtonText: "¡Cerrar!"
-// 		    });
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen debe estar en formato JPG o PNG!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
 
-//   	}else if(imagen["size"] > 2000000){
+  	}else if(imagen["size"] > 2000000){
 
-//   		$(".nuevaImagen").val("");
+  		$(".nuevaImagen").val("");
 
-//   		 swal({
-// 		      title: "Error al subir la imagen",
-// 		      text: "¡La imagen no debe pesar más de 2MB!",
-// 		      type: "error",
-// 		      confirmButtonText: "¡Cerrar!"
-// 		    });
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen no debe pesar más de 2MB!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
 
-//   	}else{
+  	}else{
 
-//   		var datosImagen = new FileReader;
-//   		datosImagen.readAsDataURL(imagen);
+  		var datosImagen = new FileReader;
+  		datosImagen.readAsDataURL(imagen);
 
-//   		$(datosImagen).on("load", function(event){
+  		$(datosImagen).on("load", function(event){
 
-//   			var rutaImagen = event.target.result;
+  			var rutaImagen = event.target.result;
 
-//   			$(".previsualizar").attr("src", rutaImagen);
+  			$(".previsualizar").attr("src", rutaImagen);
 
-//   		})
+  		})
 
-//   	}
-// })
+  	}
+})
 
 // /* EDITAR PRODUCTO */
 
