@@ -195,7 +195,7 @@ $(".nuevaImagen").change(function(){
 $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
-	
+
 	var datos = new FormData();
     datos.append("idProducto", idProducto);
 
