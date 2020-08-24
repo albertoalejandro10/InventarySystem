@@ -138,9 +138,7 @@ class ControladorProductos{
 	}
 	
 
-		/*=============================================
-	EDITAR PRODUCTO
-	=============================================*/
+	/*editar producto*/
 
 	static public function ctrEditarProducto(){
 
@@ -151,9 +149,7 @@ class ControladorProductos{
 			   preg_match('/^[0-9.]+$/', $_POST["editarPrecioCompra"]) &&
 			   preg_match('/^[0-9.]+$/', $_POST["editarPrecioVenta"])){
 
-		   		/*=============================================
-				VALIDAR IMAGEN
-				=============================================*/
+		   		/* validar imagen */
 
 			   	$ruta = $_POST["imagenActual"];
 
@@ -164,15 +160,11 @@ class ControladorProductos{
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
 
-					/*=============================================
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
-					=============================================*/
+					/*CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO*/
 
 					$directorio = "views/img/productos/".$_POST["editarCodigo"];
 
-					/*=============================================
-					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
-					=============================================*/
+					/*PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD*/
 
 					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "views/img/productos/default/anonymous.png"){
 
@@ -184,15 +176,11 @@ class ControladorProductos{
 					
 					}
 					
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/
+					/*DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP*/
 
 					if($_FILES["editarImagen"]["type"] == "image/jpeg"){
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+						/*GUARDAMOS LA IMAGEN EN EL DIRECTORIO*/
 
 						$aleatorio = mt_rand(100,999);
 
@@ -210,9 +198,7 @@ class ControladorProductos{
 
 					if($_FILES["editarImagen"]["type"] == "image/png"){
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+						/*GUARDAMOS LA IMAGEN EN EL DIRECTORIO*/
 
 						$aleatorio = mt_rand(100,999);
 
