@@ -78,6 +78,13 @@ class ControladorProductos{
 				}
 
 			 }
+					
+				date_default_timezone_set('America/Caracas');
+
+				$fecha = date('Y-m-d');
+				$hora = date('H:i:s');
+
+				$fechaActual = $fecha." ". $hora;
 
 			 
 				$tabla = "productos";
@@ -88,7 +95,8 @@ class ControladorProductos{
 							   "stock" => $_POST["nuevoStock"],
 							   "precio_compra" => $_POST["nuevoPrecioCompra"],
 							   "precio_venta" => $_POST["nuevoPrecioVenta"],
-							   "imagen" => $ruta);
+							   "imagen" => $ruta,
+							   "fecha" => $fechaActual);
 
 				$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
 
@@ -270,6 +278,50 @@ class ControladorProductos{
 			  	</script>';
 			}
 		}
+
+	}
+
+
+	/*BORRAR PRODUCTO*/
+
+	static public function ctrEliminarProducto(){
+
+		if(isset($_GET["idProducto"])){
+
+			$tabla ="productos";
+			$datos = $_GET["idProducto"];
+
+			if($_GET["imagen"] != "" && $_GET["imagen"] != "views/img/productos/default/anonymous.png"){
+
+				unlink($_GET["imagen"]);
+				rmdir('views/img/productos/'.$_GET["codigo"]);
+
+			}
+
+			$respuesta = ModeloProductos::mdlEliminarProducto($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El producto ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "productos";
+
+								}
+							})
+
+				</script>';
+
+			}		
+		}
+
 
 	}
 }

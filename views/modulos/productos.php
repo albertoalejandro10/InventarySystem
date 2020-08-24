@@ -200,9 +200,7 @@
 
 
 
-<!--=====================================
-MODAL EDITAR PRODUCTO
-======================================-->
+<!--modal editar producto-->
 
 <div id="modalEditarProducto" class="modal fade" role="dialog">
   
@@ -212,9 +210,7 @@ MODAL EDITAR PRODUCTO
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
+        <!--cabeza del modal-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
@@ -224,16 +220,14 @@ MODAL EDITAR PRODUCTO
 
         </div>
 
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
+        <!--cuerpo del modal-->
 
         <div class="modal-body">
 
           <div class="box-body">
 
 
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+            <!-- entrada para seleccionar categoría -->
 
             <div class="form-group">
               
@@ -251,7 +245,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA EL CÓDIGO -->
+            <!-- entrada para el código -->
             
             <div class="form-group">
               
@@ -265,7 +259,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
+            <!-- entrada para la descripción -->
 
              <div class="form-group">
               
@@ -279,7 +273,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA STOCK -->
+             <!-- entrada para stock -->
 
              <div class="form-group">
               
@@ -293,7 +287,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA PRECIO COMPRA -->
+             <!-- entrada para precio compra -->
 
              <div class="form-group row">
 
@@ -309,7 +303,7 @@ MODAL EDITAR PRODUCTO
 
                 </div>
 
-                <!-- ENTRADA PARA PRECIO VENTA -->
+                <!-- entrada para precio venta -->
 
                 <div class="col-xs-6">
                 
@@ -323,7 +317,7 @@ MODAL EDITAR PRODUCTO
                 
                   <br>
 
-                  <!-- CHECKBOX PARA PORCENTAJE -->
+                  <!-- checkbox para porcentaje -->
 
                   <div class="col-xs-6">
                     
@@ -339,7 +333,7 @@ MODAL EDITAR PRODUCTO
 
                   </div>
 
-                  <!-- ENTRADA PARA PORCENTAJE -->
+                  <!-- entrada para porcentaje -->
 
                   <div class="col-xs-6" style="padding:0">
                     
@@ -357,7 +351,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
+            <!-- entrada para subir foto -->
 
              <div class="form-group">
               
@@ -377,9 +371,7 @@ MODAL EDITAR PRODUCTO
 
         </div>
 
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+        <!--pie del modal-->
 
         <div class="modal-footer">
 
@@ -405,3 +397,9 @@ MODAL EDITAR PRODUCTO
 </div>
 
 
+<?php
+
+$eliminarProducto = new ControladorProductos();
+$eliminarProducto->ctrEliminarProducto();
+
+?>      
