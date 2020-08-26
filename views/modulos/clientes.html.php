@@ -168,10 +168,11 @@
 
       </form>
 
+
       <?php
 
         $crearCliente = new ControladorClientes();
-        $crearCliente->ctrCrearCliente();
+        $crearClientes->ctrCrearCliente();
 
       ?>
 
