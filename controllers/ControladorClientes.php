@@ -3,7 +3,7 @@
 class ControladorClientes
 {
 
-    /* crear clientes */
+    /* Crear clientes */
 
     public static function ctrCrearCliente()
     {
@@ -61,5 +61,16 @@ class ControladorClientes
 			  	</script>';
             }
         }
+    }
+
+    /* Mostrar clientes */
+	static public function ctrMostrarClientes($item, $valor){
+
+		$tabla = "clientes";
+
+		$respuesta = ModeloClientes::mdlMostrarClientes($tabla, $item, $valor);
+
+		return $respuesta;
+
     }
 }

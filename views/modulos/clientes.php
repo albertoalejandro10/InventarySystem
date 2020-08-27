@@ -43,27 +43,56 @@
               </thead>
 
               <tbody>
-              
-                <tr>
-                  <td>1</td>
-                  <td>Alberto Núñez</td>
-                  <td>25 265 058</td>
-                  <td>alberto196g@gmail.com</td>
-                  <td>+58 424 9448022</td>
-                  <td>Av. Jose Tadeo Monagas</td>
-                  <td>1996-11-18 17:13 </td>
-                  <td>6</td>
-                  <td>35</td>
-                  <td>2020-08-25</td>
 
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                    </div>
-                  </td>
+              <?php
 
-                </tr>
+                $item = null;
+                $valor = null;
+
+                $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+                foreach ($clientes as $key => $value) {
+                  
+
+                  echo '<tr>
+
+                          <td>'.($key+1).'</td>
+
+                          <td>'.$value["nombre"].'</td>
+
+                          <td>'.$value["documento"].'</td>
+
+                          <td>'.$value["email"].'</td>
+
+                          <td>'.$value["telefono"].'</td>
+
+                          <td>'.$value["direccion"].'</td>
+
+                          <td>'.$value["fecha_nacimiento"].'</td>             
+
+                          <td>'.$value["compras"].'</td>
+
+                          <td>0000-00-00 00:00:00</td>
+
+                          <td>'.$value["fecha"].'</td>
+
+                          <td>
+
+                            <div class="btn-group">
+                                
+                              <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+
+                              <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                            </div>  
+
+                          </td>
+
+                        </tr>';
+
+                  }
+
+                ?>
 
               </tbody>
 
