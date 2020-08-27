@@ -138,6 +138,8 @@
 
 <script src="views/js/productos.js"></script>
 
+<script src="views/js/clientes.js"></script>
+
 
 </body>
 </html>
