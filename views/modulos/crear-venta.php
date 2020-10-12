@@ -186,8 +186,7 @@
 
                 <br />
 
-            </div>
-              
+            </div>              
 
           </div>
 
@@ -247,8 +246,6 @@
     </div>
   </section>
 </div>
-
-
 
   <!-- Modal agregar usuario -->
 
