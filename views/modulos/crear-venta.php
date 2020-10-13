@@ -241,7 +241,7 @@
       <div class="box box-warning">
         <div class="box-header with-border"></div>
           <div class="box-body">
-            <table class="table table-bordered table-striped dt-responsive tablas">
+            <table class="table table-bordered table-striped dt-responsive tablaVentas">
 
                 <thead>
 
@@ -256,19 +256,6 @@
 
               </thead>
 
-              <tr>
-                <td>1</td>
-                    <td><img src="views/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                    <td>00123</td>
-                    <td>Lorem ipsum dolor sit amet</td>
-                    <td>20</td>
-                    <td>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Agregar</button>
-                      </div>
-                    </td>
-
-                </tr>
 
             </table>
         </div>

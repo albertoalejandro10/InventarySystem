@@ -84,19 +84,18 @@
 <!-- Site wrapper -->
 
     <?php
-      if(isset($_SESSION["iniciarSesion"]) && $_SESSION['iniciarSesion'] == "ok"){
+      if (isset($_SESSION["iniciarSesion"]) && $_SESSION['iniciarSesion'] == "ok") {
+          echo '<div class="wrapper">';
 
-        echo '<div class="wrapper">';
-
-        /*Cabecera*/
-        include "modulos/cabeza.php";
+          /*Cabecera*/
+          include "modulos/cabeza.php";
         
-        /*Menu*/
-        include "modulos/menu.php";
+          /*Menu*/
+          include "modulos/menu.php";
 
-        /*Modulo contenido*/
-        if(isset($_GET["ruta"])){
-          if($_GET["ruta"] == "inicio" ||
+          /*Modulo contenido*/
+          if (isset($_GET["ruta"])) {
+              if ($_GET["ruta"] == "inicio" ||
             $_GET["ruta"] == "usuarios" ||
             $_GET["ruta"] == "categorias" ||
             $_GET["ruta"] == "productos" ||
@@ -104,25 +103,21 @@
             $_GET["ruta"] == "ventas" ||
             $_GET["ruta"] == "crear-venta" ||
             $_GET["ruta"] == "reportes" ||
-            $_GET["ruta"] == "salir"){
-
-
-            include "modulos/".$_GET["ruta"].".php";
-          
-          }else{
-            include "modulos/404.php";
+            $_GET["ruta"] == "salir") {
+                  include "modulos/".$_GET["ruta"].".php";
+              } else {
+                  include "modulos/404.php";
+              }
+          } else {
+              include "modulos/inicio.php";
           }
-        }else{
-          include "modulos/inicio.php";
-        }
 
-        /*Footer*/
-        include "modulos/footer.php";
+          /*Footer*/
+          include "modulos/footer.php";
 
-        echo '</div>';
-      
-      }else{
-        include "modulos/login.php";
+          echo '</div>';
+      } else {
+          include "modulos/login.php";
       }
     ?>
 
@@ -139,6 +134,8 @@
 <script src="views/js/productos.js"></script>
 
 <script src="views/js/clientes.js"></script>
+
+<script src="views/js/ventas.js"></script>
 
 
 </body>
