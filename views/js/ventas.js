@@ -1,17 +1,17 @@
-// /*=============================================
+// /*
 // CARGAR LA TABLA DINÁMICA DE VENTAS
-// =============================================*/
+// */
 
-$.ajax({
+// $.ajax({
 
-	url: "ajax/datatable-ventas.ajax.php",
-	success:function(respuesta){
+// 	url: "ajax/datatable-ventas.ajax.php",
+// 	success:function(respuesta){
 		
-		console.log("respuesta", respuesta);
+// 		console.log("respuesta", respuesta);
 
-	}
+// 	}
 
-})
+// })
 
 $('.tablaVentas').DataTable( {
     "ajax": "ajax/datatable-ventas.ajax.php",
@@ -47,121 +47,123 @@ $('.tablaVentas').DataTable( {
 
 } );
 
-// /*=============================================
-// AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
-// =============================================*/
+/*
+AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
+*/
 
-// $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
+$(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
-// 	var idProducto = $(this).attr("idProducto");
+	var idProducto = $(this).attr("idProducto");
 
-// 	$(this).removeClass("btn-primary agregarProducto");
+	// console.log(idProducto);
 
-// 	$(this).addClass("btn-default");
+	$(this).removeClass("btn-primary agregarProducto");
 
-// 	var datos = new FormData();
-//     datos.append("idProducto", idProducto);
+	$(this).addClass("btn-default");
 
-//      $.ajax({
+	var datos = new FormData();
+    datos.append("idProducto", idProducto);
 
-//      	url:"ajax/productos.ajax.php",
-//       	method: "POST",
-//       	data: datos,
-//       	cache: false,
-//       	contentType: false,
-//       	processData: false,
-//       	dataType:"json",
-//       	success:function(respuesta){
+     $.ajax({
 
-//       	    var descripcion = respuesta["descripcion"];
-//           	var stock = respuesta["stock"];
-//           	var precio = respuesta["precio_venta"];
+     	url:"ajax/productos.ajax.php",
+      	method: "POST",
+      	data: datos,
+      	cache: false,
+      	contentType: false,
+      	processData: false,
+      	dataType:"json",
+      	success:function(respuesta){
 
-//           	/*=============================================
-//           	EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
-//           	=============================================*/
+      	    var descripcion = respuesta["descripcion"];
+          	var stock = respuesta["stock"];
+          	var precio = respuesta["precio_venta"];
 
-//           	if(stock == 0){
+          	/*
+          	EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
+          	*/
 
-//       			swal({
-// 			      title: "No hay stock disponible",
-// 			      type: "error",
-// 			      confirmButtonText: "¡Cerrar!"
-// 			    });
+          	if(stock == 0){
 
-// 			    $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
+      			swal({
+			      title: "No hay stock disponible",
+			      type: "error",
+			      confirmButtonText: "¡Cerrar!"
+			    });
 
-// 			    return;
+			    $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
 
-//           	}
+			    return;
 
-//           	$(".nuevoProducto").append(
+          	}
 
-//           	'<div class="row" style="padding:5px 15px">'+
+          	$(".nuevoProducto").append(
 
-// 			  '<!-- Descripción del producto -->'+
+          	'<div class="row" style="padding:5px 15px">'+
+
+			  '<!-- Descripción del producto -->'+
 	          
-// 	          '<div class="col-xs-6" style="padding-right:0px">'+
+	          '<div class="col-xs-6" style="padding-right:0px">'+
 	          
-// 	            '<div class="input-group">'+
+	            '<div class="input-group">'+
 	              
-// 	              '<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto="'+idProducto+'"><i class="fa fa-times"></i></button></span>'+
+	              '<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto="'+idProducto+'"><i class="fa fa-times"></i></button></span>'+
 
-// 	              '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+descripcion+'" readonly required>'+
+	              '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+descripcion+'" readonly required>'+
 
-// 	            '</div>'+
+	            '</div>'+
 
-// 	          '</div>'+
+	          '</div>'+
 
-// 	          '<!-- Cantidad del producto -->'+
+	          '<!-- Cantidad del producto -->'+
 
-// 	          '<div class="col-xs-3">'+
+	          '<div class="col-xs-3">'+
 	            
-// 	             '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock="'+stock+'" nuevoStock="'+Number(stock-1)+'" required>'+
+	             '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock="'+stock+'" nuevoStock="'+Number(stock-1)+'" required>'+
 
-// 	          '</div>' +
+	          '</div>' +
 
-// 	          '<!-- Precio del producto -->'+
+	          '<!-- Precio del producto -->'+
 
-// 	          '<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
+	          '<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
 
-// 	            '<div class="input-group">'+
+	            '<div class="input-group">'+
 
-// 	              '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
+	              '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
 	                 
-// 	              '<input type="text" class="form-control nuevoPrecioProducto" precioReal="'+precio+'" name="nuevoPrecioProducto" value="'+precio+'" readonly required>'+
+	              '<input type="text" class="form-control nuevoPrecioProducto" precioReal="'+precio+'" name="nuevoPrecioProducto" value="'+precio+'" readonly required>'+
 	 
-// 	            '</div>'+
+	            '</div>'+
 	             
-// 	          '</div>'+
+	          '</div>'+
 
-// 	        '</div>') 
+	        '</div>') 
 
-// 	        // SUMAR TOTAL DE PRECIOS
+	        // SUMAR TOTAL DE PRECIOS
 
-// 	        sumarTotalPrecios()
+	        sumarTotalPrecios()
 
-// 	        // AGREGAR IMPUESTO
+	        // AGREGAR IMPUESTO
 
-// 	        agregarImpuesto()
+	        agregarImpuesto()
 
-// 	        // AGRUPAR PRODUCTOS EN FORMATO JSON
+	        // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-// 	        listarProductos()
+	        listarProductos()
 
-// 	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
+	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
-// 	        $(".nuevoPrecioProducto").number(true, 2);
+	        $(".nuevoPrecioProducto").number(true, 2);
 
-//       	}
+      	}
 
-//      })
+     })
 
-// });
+});
 
-// /*=============================================
-// CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
-// =============================================*/
+/*
+CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
+*/
 
 // $(".tablaVentas").on("draw.dt", function(){
 
@@ -183,23 +185,30 @@ $('.tablaVentas').DataTable( {
 // })
 
 
-// /*=============================================
+// /*
 // QUITAR PRODUCTOS DE LA VENTA Y RECUPERAR BOTÓN
-// =============================================*/
+// */
 
 // var idQuitarProducto = [];
 
 // localStorage.removeItem("quitarProducto");
 
-// $(".formularioVenta").on("click", "button.quitarProducto", function(){
+$(".formularioVenta").on("click", "button.quitarProducto", function(){
 
-// 	$(this).parent().parent().parent().parent().remove();
+	$(this).parent().parent().parent().parent().remove();
 
-// 	var idProducto = $(this).attr("idProducto");
+	var idProducto = $(this).attr("idProducto");
 
-// 	/*=============================================
+	$("button.recuperarBoton[idProducto='"+idProducto+"']").removeClass('btn-default');
+
+	$("button.recuperarBoton[idProducto='"+idProducto+"']").addClass('btn-primary agregarProducto');
+
+
+})
+
+// 	/*
 // 	ALMACENAR EN EL LOCALSTORAGE EL ID DEL PRODUCTO A QUITAR
-// 	=============================================*/
+// 	*/
 
 // 	if(localStorage.getItem("quitarProducto") == null){
 
@@ -244,9 +253,9 @@ $('.tablaVentas').DataTable( {
 
 // })
 
-// /*=============================================
+// /*
 // AGREGANDO PRODUCTOS DESDE EL BOTÓN PARA DISPOSITIVOS
-// =============================================*/
+// */
 
 // var numProducto = 0;
 
@@ -351,9 +360,9 @@ $('.tablaVentas').DataTable( {
 
 // })
 
-// /*=============================================
+// /*
 // SELECCIONAR PRODUCTO
-// =============================================*/
+// */
 
 // $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
 
@@ -395,9 +404,9 @@ $('.tablaVentas').DataTable( {
 //       })
 // })
 
-// /*=============================================
+// /*
 // MODIFICAR LA CANTIDAD
-// =============================================*/
+// */
 
 // $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
@@ -413,9 +422,9 @@ $('.tablaVentas').DataTable( {
 
 // 	if(Number($(this).val()) > Number($(this).attr("stock"))){
 
-// 		/*=============================================
+// 		/*
 // 		SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
-// 		=============================================*/
+// 		*/
 
 // 		$(this).val(1);
 
@@ -450,9 +459,9 @@ $('.tablaVentas').DataTable( {
 
 // })
 
-// /*=============================================
+// /*
 // SUMAR TODOS LOS PRECIOS
-// =============================================*/
+// */
 
 // function sumarTotalPrecios(){
 
@@ -480,9 +489,9 @@ $('.tablaVentas').DataTable( {
 
 // }
 
-// /*=============================================
+// /*
 // FUNCIÓN AGREGAR IMPUESTO
-// =============================================*/
+// */
 
 // function agregarImpuesto(){
 
@@ -503,9 +512,9 @@ $('.tablaVentas').DataTable( {
 
 // }
 
-// /*=============================================
+// /*
 // CUANDO CAMBIA EL IMPUESTO
-// =============================================*/
+// */
 
 // $("#nuevoImpuestoVenta").change(function(){
 
@@ -513,15 +522,15 @@ $('.tablaVentas').DataTable( {
 
 // });
 
-// /*=============================================
+// /*
 // FORMATO AL PRECIO FINAL
-// =============================================*/
+// */
 
 // $("#nuevoTotalVenta").number(true, 2);
 
-// /*=============================================
+// /*
 // SELECCIONAR MÉTODO DE PAGO
-// =============================================*/
+// */
 
 // $("#nuevoMetodoPago").change(function(){
 
@@ -596,9 +605,9 @@ $('.tablaVentas').DataTable( {
 
 // })
 
-// /*=============================================
+// /*
 // CAMBIO EN EFECTIVO
-// =============================================*/
+// */
 // $(".formularioVenta").on("change", "input#nuevoValorEfectivo", function(){
 
 // 	var efectivo = $(this).val();
@@ -611,9 +620,9 @@ $('.tablaVentas').DataTable( {
 
 // })
 
-// /*=============================================
+// /*
 // CAMBIO TRANSACCIÓN
-// =============================================*/
+// */
 // $(".formularioVenta").on("change", "input#nuevoCodigoTransaccion", function(){
 
 // 	// Listar método en la entrada
@@ -623,9 +632,9 @@ $('.tablaVentas').DataTable( {
 // })
 
 
-// /*=============================================
+// /*
 // LISTAR TODOS LOS PRODUCTOS
-// =============================================*/
+// */
 
 // function listarProductos(){
 
@@ -652,9 +661,9 @@ $('.tablaVentas').DataTable( {
 
 // }
 
-// /*=============================================
+// /*
 // LISTAR MÉTODO DE PAGO
-// =============================================*/
+// */
 
 // function listarMetodos(){
 
@@ -672,9 +681,9 @@ $('.tablaVentas').DataTable( {
 
 // }
 
-// /*=============================================
+// /*
 // BOTON EDITAR VENTA
-// =============================================*/
+// */
 // $(".tablas").on("click", ".btnEditarVenta", function(){
 
 // 	var idVenta = $(this).attr("idVenta");
@@ -684,9 +693,9 @@ $('.tablaVentas').DataTable( {
 
 // })
 
-// /*=============================================
+// /*
 // FUNCIÓN PARA DESACTIVAR LOS BOTONES AGREGAR CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO EN LA CARPETA
-// =============================================*/
+// */
 
 // function quitarAgregarProducto(){
 
@@ -717,9 +726,9 @@ $('.tablaVentas').DataTable( {
 	
 // }
 
-// /*=============================================
+// /*
 // CADA VEZ QUE CARGUE LA TABLA CUANDO NAVEGAMOS EN ELLA EJECUTAR LA FUNCIÓN:
-// =============================================*/
+// */
 
 // $('.tablaVentas').on( 'draw.dt', function(){
 
@@ -729,9 +738,9 @@ $('.tablaVentas').DataTable( {
 
 
 
-// /*=============================================
+// /*
 // BORRAR VENTA
-// =============================================*/
+// */
 // $(".tablas").on("click", ".btnEliminarVenta", function(){
 
 //   var idVenta = $(this).attr("idVenta");
