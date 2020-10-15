@@ -165,33 +165,33 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
 */
 
-// $(".tablaVentas").on("draw.dt", function(){
+$(".tablaVentas").on("draw.dt", function(){
 
-// 	if(localStorage.getItem("quitarProducto") != null){
+	if(localStorage.getItem("quitarProducto") != null){
 
-// 		var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
+		var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
 
-// 		for(var i = 0; i < listaIdProductos.length; i++){
+		for(var i = 0; i < listaIdProductos.length; i++){
 
-// 			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
-// 			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
+			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
+			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
 
-// 		}
-
-
-// 	}
+		}
 
 
-// })
+	}
 
 
-// /*
-// QUITAR PRODUCTOS DE LA VENTA Y RECUPERAR BOTÓN
-// */
+})
 
-// var idQuitarProducto = [];
 
-// localStorage.removeItem("quitarProducto");
+/*
+QUITAR PRODUCTOS DE LA VENTA Y RECUPERAR BOTÓN
+*/
+
+var idQuitarProducto = [];
+
+localStorage.removeItem("quitarProducto");
 
 $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
@@ -199,34 +199,29 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
 
+	/*
+	ALMACENAR EN EL LOCALSTORAGE EL ID DEL PRODUCTO A QUITAR
+	*/
+
+	if(localStorage.getItem("quitarProducto") == null){
+
+		idQuitarProducto = [];
+	
+	}else{
+
+		idQuitarProducto.concat(localStorage.getItem("quitarProducto"))
+
+	}
+
+	idQuitarProducto.push({"idProducto":idProducto});
+
+	localStorage.setItem("quitarProducto", JSON.stringify(idQuitarProducto));
+
 	$("button.recuperarBoton[idProducto='"+idProducto+"']").removeClass('btn-default');
 
 	$("button.recuperarBoton[idProducto='"+idProducto+"']").addClass('btn-primary agregarProducto');
 
-
 })
-
-// 	/*
-// 	ALMACENAR EN EL LOCALSTORAGE EL ID DEL PRODUCTO A QUITAR
-// 	*/
-
-// 	if(localStorage.getItem("quitarProducto") == null){
-
-// 		idQuitarProducto = [];
-	
-// 	}else{
-
-// 		idQuitarProducto.concat(localStorage.getItem("quitarProducto"))
-
-// 	}
-
-// 	idQuitarProducto.push({"idProducto":idProducto});
-
-// 	localStorage.setItem("quitarProducto", JSON.stringify(idQuitarProducto));
-
-// 	$("button.recuperarBoton[idProducto='"+idProducto+"']").removeClass('btn-default');
-
-// 	$("button.recuperarBoton[idProducto='"+idProducto+"']").addClass('btn-primary agregarProducto');
 
 // 	if($(".nuevoProducto").children().length == 0){
 
