@@ -153,7 +153,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
-	        // $(".nuevoPrecioProducto").number(true, 2);
+	        $(".nuevoPrecioProducto").number(true, 2);
 
       	}
 
@@ -342,9 +342,9 @@ $(".btnAgregarProducto").click(function(){
 	        
 	        agregarImpuesto()
 
-	        // // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
+	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
-	        // $(".nuevoPrecioProducto").number(true, 2);
+	        $(".nuevoPrecioProducto").number(true, 2);
 
       	}
 
@@ -502,9 +502,7 @@ function agregarImpuesto(){
 
 }
 
-/*
-CUANDO CAMBIA EL IMPUESTO
-*/
+/* CUANDO CAMBIA EL IMPUESTO */
 
 $("#nuevoImpuestoVenta").change(function(){
 
@@ -512,11 +510,9 @@ $("#nuevoImpuestoVenta").change(function(){
 
 });
 
-// /*
-// FORMATO AL PRECIO FINAL
-// */
+/* FORMATO AL PRECIO FINAL */
 
-// $("#nuevoTotalVenta").number(true, 2);
+$("#nuevoTotalVenta").number(true, 2);
 
 // /*
 // SELECCIONAR MÉTODO DE PAGO

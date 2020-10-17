@@ -77,6 +77,9 @@
   <script src="views/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
   <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
+  <!-- jQuery number plugin -->
+  <script src="views/plugins/jqueryNumber/jquerynumber.min.js"></script>
+
 
 
 </head>
