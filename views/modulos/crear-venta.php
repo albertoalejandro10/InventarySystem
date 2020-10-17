@@ -185,13 +185,17 @@
 
                     </div>
 
-                    <div class="col-xs-6" style="padding-left-0">
+                    <!-- <div class="col-xs-6" style="padding-left-0">
                       <div class="input-group">
 
                         <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Código transacción" required>
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
                       </div>
+                    </div> -->
+
+                    <div class="cajasMetodoPago">
+                        
                     </div>
 
                   </div>
