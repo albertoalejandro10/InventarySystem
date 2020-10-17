@@ -362,7 +362,6 @@ SELECCIONAR PRODUCTO
 $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
 
 	var nombreProducto = $(this).val();
-	console.log('nombreProducto', nombreProducto);
 
 	var nuevaDescripcionProducto = $(this).parent().parent().parent().children().children().children(".nuevaDescripcionProducto");
 
@@ -399,60 +398,60 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
 	});
 })
 
-// /*
-// MODIFICAR LA CANTIDAD
-// */
+/*
+MODIFICAR LA CANTIDAD
+*/
 
-// $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
+$(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
-// 	var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
+	var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
 
-// 	var precioFinal = $(this).val() * precio.attr("precioReal");
+	var precioFinal = $(this).val() * precio.attr("precioReal");
 	
-// 	precio.val(precioFinal);
+	precio.val(precioFinal);
 
-// 	var nuevoStock = Number($(this).attr("stock")) - $(this).val();
+	var nuevoStock = Number($(this).attr("stock")) - $(this).val();
 
-// 	$(this).attr("nuevoStock", nuevoStock);
+	$(this).attr("nuevoStock", nuevoStock);
 
-// 	if(Number($(this).val()) > Number($(this).attr("stock"))){
+	if(Number($(this).val()) > Number($(this).attr("stock"))){
 
-// 		/*
-// 		SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
-// 		*/
+		/*
+		SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
+		*/
 
-// 		$(this).val(1);
+		$(this).val(1);
 
-// 		var precioFinal = $(this).val() * precio.attr("precioReal");
+		var precioFinal = $(this).val() * precio.attr("precioReal");
 
-// 		precio.val(precioFinal);
+		precio.val(precioFinal);
 
-// 		sumarTotalPrecios();
+		// sumarTotalPrecios();
 
-// 		swal({
-// 	      title: "La cantidad supera el Stock",
-// 	      text: "¡Sólo hay "+$(this).attr("stock")+" unidades!",
-// 	      type: "error",
-// 	      confirmButtonText: "¡Cerrar!"
-// 	    });
+		swal({
+	      title: "La cantidad supera el Stock",
+	      text: "¡Sólo hay "+$(this).attr("stock")+" unidades!",
+	      type: "error",
+	      confirmButtonText: "¡Cerrar!"
+	    });
 
-// 	    return;
+	    return;
 
-// 	}
+	}
 
-// 	// SUMAR TOTAL DE PRECIOS
+	// SUMAR TOTAL DE PRECIOS
 
-// 	sumarTotalPrecios()
+	// sumarTotalPrecios()
 
-// 	// AGREGAR IMPUESTO
+	// AGREGAR IMPUESTO
 	        
-//     agregarImpuesto()
+    // agregarImpuesto()
 
-//     // AGRUPAR PRODUCTOS EN FORMATO JSON
+    // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-//     listarProductos()
+    // listarProductos()
 
-// })
+})
 
 // /*
 // SUMAR TODOS LOS PRECIOS
