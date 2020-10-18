@@ -209,6 +209,13 @@
             </div>
           </form>
 
+          <?php
+
+            $guardarVenta = new ControladorVentas();
+            $guardarVenta->ctrCrearVenta();
+
+          ?>
+
           
         </div>
       </div>

@@ -1,7 +1,8 @@
 <?php
 require_once "conexion.php";
 
-class ModeloClientes{
+class ModeloClientes
+{
 
     /* crear cliente */
 
@@ -26,85 +27,89 @@ class ModeloClientes{
         $stmt = null;
     }
 
-    static public function mdlMostrarClientes($tabla, $item, $valor){
+    public static function mdlMostrarClientes($tabla, $item, $valor)
+    {
+        if ($item != null) {
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
-		if($item != null){
+            $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+            $stmt -> execute();
 
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+            return $stmt -> fetch();
+        } else {
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 
-			$stmt -> execute();
+            $stmt -> execute();
 
-			return $stmt -> fetch();
+            return $stmt -> fetchAll();
+        }
 
-		}else{
+        $stmt -> close();
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
-		}
-
-		$stmt -> close();
-
-		$stmt = null;
-
+        $stmt = null;
     }
     
     
     /* Editar cliente */
-    static public function mdlEditarCliente($tabla, $datos){
+    public static function mdlEditarCliente($tabla, $datos)
+    {
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, documento = :documento, email = :email, telefono = :telefono, direccion = :direccion, fecha_nacimiento = :fecha_nacimiento WHERE id = :id");
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, documento = :documento, email = :email, telefono = :telefono, direccion = :direccion, fecha_nacimiento = :fecha_nacimiento WHERE id = :id");
+        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":documento", $datos["documento"], PDO::PARAM_INT);
+        $stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
+        $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+        $stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);
 
-		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
-		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-		$stmt->bindParam(":documento", $datos["documento"], PDO::PARAM_INT);
-		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-		$stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
 
-		if($stmt->execute()){
-
-			return "ok";
-
-		}else{
-
-			return "error";
-		
-		}
-
-		$stmt->close();
-		$stmt = null;
-
+        $stmt->close();
+        $stmt = null;
     }
     
     /*	eliminar cliente */
 
-	static public function mdlEliminarCliente($tabla, $datos){
+    public static function mdlEliminarCliente($tabla, $datos)
+    {
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+        $stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
 
-		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+        if ($stmt -> execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
 
-		if($stmt -> execute()){
+        $stmt -> close();
 
-			return "ok";
-		
-		}else{
+        $stmt = null;
+    }
 
-			return "error";	
+    /* ACTUALIZAR CLIENTE */
 
-		}
+    public static function mdlActualizarCliente($tabla, $item1, $valor1, $valor)
+    {
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE id = :id");
 
-		$stmt -> close();
+        $stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+        $stmt -> bindParam(":id", $valor, PDO::PARAM_STR);
 
-		$stmt = null;
+        if ($stmt -> execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
 
-	}
+        $stmt -> close();
 
+        $stmt = null;
+    }
 }
