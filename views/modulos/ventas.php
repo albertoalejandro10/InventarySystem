@@ -1,6 +1,4 @@
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">        
         <h1>
             Administrar ventas
@@ -43,25 +41,48 @@
               </thead>
 
               <tbody>
-              
-                <tr>
-                  <td>1</td>
-                  <td>1000123</td>
-                  <td>Hugo Rafael</td>
-                  <td>Alberto Garcia</td>
-                  <td>TC ' 123412453462</td>
-                  <td>$ 1,000.00</td>
-                  <td>$ 1,190.00</td>
-                  <td>2020-08-25 12:05:32</td>
 
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn btn-info"><i class="fa fa-print"></i></button>
-                      <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                    </div>
-                  </td>
+              <?php
 
-                </tr>
+                $item = null;
+                $valor = null;
+
+                $respuesta = ControladorVentas::ctrMostrarVentas($item, $valor);
+
+                foreach ($respuesta as $key => $value) {
+                    echo
+                        '                       
+                          <tr>
+                          <td>'.($key+1).'</td>
+                          <td>'.$value["codigo"].'</td>';
+                    $itemCliente = "id";
+                    $valorCliente = $value["id_cliente"];
+                    $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                    echo '<td>'.$respuestaCliente["nombre"].'</td>';
+
+                    $itemUsuario = "id";
+                    $valorUsuario = $value["id_vendedor"];
+                    $respuestaUsuario = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
+
+                    echo '<td>'.$respuestaUsuario["nombre"].'</td>
+                          <td>'.$value["metodo_pago"].'</td>
+                          <td>'.number_format($value["neto"], 2).'</td>
+                          <td>'.number_format($value["total"], 2).'</td>
+                          <td>'.$value["fecha"].'</td>
+
+                          <td>
+                            <div class="btn-group">
+                              <button class="btn btn-info"><i class="fa fa-print"></i></button>
+                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                            </div>
+                          </td>
+
+                        </tr>
+                        ';
+                }
+              ?>
+            
 
               </tbody>
 
