@@ -35,7 +35,7 @@
 
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                    <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="<?php echo $_SESSION['nombre'] ?>" readonly>
+                    <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION['nombre'] ?>" readonly>
                     
                     <input type="hidden" name="idVendedor" value="<?php echo $_SESSION['id'] ?>">
                   </div>
@@ -54,7 +54,7 @@
                     $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
 
                     if (!$ventas) {
-                        echo  '<input type="text" class="form-control" id="nuevoVenta" name="nuevoVenta" value="10001" readonly>';
+                        echo  '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10001" readonly>';
                     } else {
                         foreach ($ventas as $key => $value) {
                             #code
@@ -62,7 +62,7 @@
 
                         $codigo = $value["codigo"] + 1;
 
-                        echo  '<input type="text" class="form-control" id="nuevoVenta" name="nuevoVenta" value="'.$codigo.'" readonly>';
+                        echo  '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="'.$codigo.'" readonly>';
                     }
                   ?>
 
@@ -100,6 +100,8 @@
                 <div class="form-group row nuevoProducto">
 
                 </div>
+
+                <input type="hidden" id="listaProductos" name="listaProductos">
 
                 <!-- Boton para agregar producto -->
                 <button type="button" class="btn btn-default hidden-lg btnAgregarProducto">Agregar Producto</button>
@@ -185,18 +187,9 @@
 
                     </div>
 
-                    <!-- <div class="col-xs-6" style="padding-left-0">
-                      <div class="input-group">
+                    <div class="cajasMetodoPago"></div>
 
-                        <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Código transacción" required>
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-
-                      </div>
-                    </div> -->
-
-                    <div class="cajasMetodoPago">
-                        
-                    </div>
+                        <input type="hidden" id="listaMetodoPago" name="listaMetodoPago">
 
                   </div>
 

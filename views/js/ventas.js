@@ -149,7 +149,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	        // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-	        // listarProductos()
+	        listarProductos()
 
 	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
@@ -240,7 +240,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 	
 		// AGRUPAR PRODUCTOS EN FORMATO JSON
 	
-		// listarProductos()
+		listarProductos()
 	
 	}
 })
@@ -390,7 +390,7 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
 
   	      // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-	        // listarProductos();
+	        listarProductos();
 
 	  	}
 	});
@@ -445,7 +445,7 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
     // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-    // listarProductos()
+    listarProductos()
 
 })
 
@@ -479,9 +479,7 @@ function sumarTotalPrecios(){
 
 }
 
-/*
-FUNCIÓN AGREGAR IMPUESTO
-*/
+/* FUNCIÓN AGREGAR IMPUESTO */
 
 function agregarImpuesto(){
 
@@ -514,9 +512,7 @@ $("#nuevoImpuestoVenta").change(function(){
 
 $("#nuevoTotalVenta").number(true, 2);
 
-/*
-SELECCIONAR MÉTODO DE PAGO
-*/
+/* SELECCIONAR MÉTODO DE PAGO */
 
 $("#nuevoMetodoPago").change(function(){
 
@@ -563,8 +559,8 @@ $("#nuevoMetodoPago").change(function(){
 
 
       	// Listar método en la entrada
-      	// listarMetodos()
-
+		listarMetodos()
+		  
 	}else{
 
 		$(this).parent().parent().removeClass('col-xs-4');
@@ -605,66 +601,60 @@ $(".formularioVenta").on("change", "input#nuevoValorEfectivo", function(){
 
 })
 
-// /*
-// CAMBIO TRANSACCIÓN
-// */
-// $(".formularioVenta").on("change", "input#nuevoCodigoTransaccion", function(){
+/* CAMBIO TRANSACCIÓN */
+$(".formularioVenta").on("change", "input#nuevoCodigoTransaccion", function(){
 
-// 	// Listar método en la entrada
-//      listarMetodos()
+	// Listar método en la entrada
+     listarMetodos()
 
-
-// })
+})
 
 
-// /*
-// LISTAR TODOS LOS PRODUCTOS
-// */
+/* LISTAR TODOS LOS PRODUCTOS */
 
-// function listarProductos(){
+function listarProductos(){
 
-// 	var listaProductos = [];
+	var listaProductos = [];
 
-// 	var descripcion = $(".nuevaDescripcionProducto");
+	var descripcion = $(".nuevaDescripcionProducto");
 
-// 	var cantidad = $(".nuevaCantidadProducto");
+	var cantidad = $(".nuevaCantidadProducto");
 
-// 	var precio = $(".nuevoPrecioProducto");
+	var precio = $(".nuevoPrecioProducto");
 
-// 	for(var i = 0; i < descripcion.length; i++){
+	for(var i = 0; i < descripcion.length; i++){
 
-// 		listaProductos.push({ "id" : $(descripcion[i]).attr("idProducto"), 
-// 							  "descripcion" : $(descripcion[i]).val(),
-// 							  "cantidad" : $(cantidad[i]).val(),
-// 							  "stock" : $(cantidad[i]).attr("nuevoStock"),
-// 							  "precio" : $(precio[i]).attr("precioReal"),
-// 							  "total" : $(precio[i]).val()})
+		listaProductos.push({ "id" : $(descripcion[i]).attr("idProducto"), 
+							  "descripcion" : $(descripcion[i]).val(),
+							  "cantidad" : $(cantidad[i]).val(),
+							  "stock" : $(cantidad[i]).attr("nuevoStock"),
+							  "precio" : $(precio[i]).attr("precioReal"),
+							  "total" : $(precio[i]).val()})
 
-// 	}
+	}
 
-// 	$("#listaProductos").val(JSON.stringify(listaProductos)); 
+	$("#listaProductos").val(JSON.stringify(listaProductos));
 
-// }
 
-// /*
-// LISTAR MÉTODO DE PAGO
-// */
+}
 
-// function listarMetodos(){
+/* LISTAR MÉTODO DE PAGO */
 
-// 	var listaMetodos = "";
+function listarMetodos(){
 
-// 	if($("#nuevoMetodoPago").val() == "Efectivo"){
+	var listaMetodos = "";
 
-// 		$("#listaMetodoPago").val("Efectivo");
+	if($("#nuevoMetodoPago").val() == "Efectivo"){
 
-// 	}else{
+		$("#listaMetodoPago").val("Efectivo");
 
-// 		$("#listaMetodoPago").val($("#nuevoMetodoPago").val()+"-"+$("#nuevoCodigoTransaccion").val());
+	}else{
 
-// 	}
+		$("#listaMetodoPago").val($("#nuevoMetodoPago").val()+"-"+$("#nuevoCodigoTransaccion").val());
 
-// }
+	}
+
+}
 
 // /*
 // BOTON EDITAR VENTA
