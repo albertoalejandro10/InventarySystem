@@ -656,9 +656,7 @@ function listarMetodos(){
 
 }
 
-/*
-BOTON EDITAR VENTA
-*/
+/* BOTON EDITAR VENTA */
 $(".tablas").on("click", ".btnEditarVenta", function(){
 
 	var idVenta = $(this).attr("idVenta");
