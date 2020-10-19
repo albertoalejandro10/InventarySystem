@@ -1,6 +1,4 @@
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">        
         <h1>
             Administrar clientes
@@ -52,9 +50,7 @@
                 $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
 
                 foreach ($clientes as $key => $value) {
-                  
-
-                  echo '<tr>
+                    echo '<tr>
 
                           <td>'.($key+1).'</td>
 
@@ -72,7 +68,7 @@
 
                           <td>'.$value["compras"].'</td>
 
-                          <td>0000-00-00 00:00:00</td>
+                          <td>'.$value["ultima_compra"].'</td>
 
                           <td>'.$value["fecha"].'</td>
 
@@ -89,8 +85,7 @@
                           </td>
 
                         </tr>';
-
-                  }
+                }
 
                 ?>
 

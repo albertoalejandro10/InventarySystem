@@ -656,17 +656,17 @@ function listarMetodos(){
 
 }
 
-// /*
-// BOTON EDITAR VENTA
-// */
-// $(".tablas").on("click", ".btnEditarVenta", function(){
+/*
+BOTON EDITAR VENTA
+*/
+$(".tablas").on("click", ".btnEditarVenta", function(){
 
-// 	var idVenta = $(this).attr("idVenta");
+	var idVenta = $(this).attr("idVenta");
 
-// 	window.location = "index.php?ruta=editar-venta&idVenta="+idVenta;
+	window.location = "index.php?ruta=editar-venta&idVenta="+idVenta;
 
 
-// })
+})
 
 // /*
 // FUNCIÓN PARA DESACTIVAR LOS BOTONES AGREGAR CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO EN LA CARPETA
