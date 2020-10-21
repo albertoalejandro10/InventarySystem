@@ -1,10 +1,14 @@
 <?php
 
-class Conexion{
-    static public function conectar(){
-        $link = new PDO("mysql:host=localhost; dbname=InventarySystem",
-                        "root",
-                         "");
+class Conexion
+{
+    public static function conectar()
+    {
+        $link = new PDO(
+            "mysql:host=localhost; dbname=pos",
+            "root",
+            ""
+        );
 
         $link->exec("set names utf8");
         return $link;
