@@ -706,9 +706,7 @@ $('.tablaVentas').on( 'draw.dt', function(){
 })
 
 
-/*
-BORRAR VENTA
-*/
+/*BORRAR VENTA*/
 $(".tablas").on("click", ".btnEliminarVenta", function(){
 
   var idVenta = $(this).attr("idVenta");
@@ -730,4 +728,13 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
 
   })
 
+})
+
+/*Imprimir factura*/
+
+$(".tablas").on("click", ".btnImprimirFactura", function(){
+
+	var codigoVenta = $(this).attr("codigoVenta");
+
+	window.open("extensions/factura.php", "_blank");
 })
