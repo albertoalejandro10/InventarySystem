@@ -365,4 +365,15 @@ class ControladorVentas
             }
         }
     }
+
+    /* RANGO FECHAS */
+
+    public static function ctrRangoFechasVentas($fechaInicial, $fechaFinal)
+    {
+        $tabla = "ventas";
+
+        $respuesta = ModeloVentas::mdlRangoFechasVentas($tabla, $fechaInicial, $fechaFinal);
+
+        return $respuesta;
+    }
 }

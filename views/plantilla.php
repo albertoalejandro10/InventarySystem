@@ -16,7 +16,6 @@
 
   <link rel="icon" href="views/img/plantilla/icono-negro.png">
   <link rel="stylesheet" href="resources/css/main.css">
-    
 
 
   <!-- Plugins de CSS -->
@@ -43,7 +42,11 @@
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="views/plugins/iCheck/all.css">
 
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="views/bower_components/bootstrap-daterangepicker/daterangepicker.css">
 
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="views/bower_components/morris.js/morris.css">
 
 
     <!-- Plugins de Javascript -->
@@ -79,6 +82,17 @@
 
   <!-- jQuery number plugin -->
   <script src="views/plugins/jqueryNumber/jquerynumber.min.js"></script>
+
+  <!-- daterangepicker http://www.daterangepicker.com/-->
+  <script src="views/bower_components/moment/min/moment.min.js"></script>
+  <script src="views/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+  <!-- Morris.js charts http://morrisjs.github.io/morris.js/-->
+  <script src="views/bower_components/raphael/raphael.min.js"></script>
+  <script src="views/bower_components/morris.js/morris.min.js"></script>
+
+  <!-- ChartJS http://www.chartjs.org/-->
+  <script src="views/bower_components/Chart.js/Chart.js"></script>
 
 
 
@@ -140,6 +154,8 @@
 <script src="views/js/clientes.js"></script>
 
 <script src="views/js/ventas.js"></script>
+
+<script src="views/js/reportes.js"></script>
 
 
 </body>
