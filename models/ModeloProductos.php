@@ -5,21 +5,27 @@ require_once "conexion.php";
 class ModeloProductos
 {
     /* Mostrar productos */
-    public static function mdlMostrarProductos($tabla, $item, $valor)
+    public static function mdlMostrarProductos($tabla, $item, $valor, $orden)
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
-            $stmt->bindParam(":".$item, $valor, PDO::PARAM_STR);
-            $stmt->execute();
-            return $stmt->fetch();
+
+            $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+            $stmt -> execute();
+
+            return $stmt -> fetch();
         } else {
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
-            $stmt->execute();
-            return $stmt->fetchAll();
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
+
+            $stmt -> execute();
+
+            return $stmt -> fetchAll();
         }
 
-        $stmt->close();
-        $stmt=null;
+        $stmt -> close();
+
+        $stmt = null;
     }
     /* Ingresar Producto */
     public static function mdlIngresarProducto($tabla, $datos)
@@ -100,6 +106,21 @@ class ModeloProductos
         } else {
             return "error";
         }
+
+        $stmt -> close();
+
+        $stmt = null;
+    }
+
+    /* MOSTRAR SUMA VENTAS */
+
+    public static function mdlMostrarSumaVentas($tabla)
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT SUM(ventas) as total FROM $tabla");
+
+        $stmt -> execute();
+
+        return $stmt -> fetch();
 
         $stmt -> close();
 

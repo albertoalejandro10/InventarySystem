@@ -34,6 +34,21 @@
               include "reportes/grafico-ventas.php";
             ?>
           </div>
+          <div class="col-md-6 col-xs-12">
+             <?php
+              include "reportes/productos-mas-vendidos.php";
+             ?>
+            </div>
+          <div class="col-md-6 col-xs-12">
+             <?php
+              include "reportes/vendedores.php";
+             ?>
+            </div>
+          <div class="col-md-6 col-xs-12">
+             <?php
+              include "reportes/compradores.php";
+             ?>
+            </div>
         </div>
       </div>
 

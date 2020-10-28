@@ -128,8 +128,9 @@
                 foreach ($listaProducto as $key => $value) {
                     $item = "id";
                     $valor = $value["id"];
+                    $orden = "id";
 
-                    $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+                    $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
                     $stockAntiguo = $respuesta["stock"] + $value["cantidad"];
                   

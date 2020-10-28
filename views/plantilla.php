@@ -92,7 +92,7 @@
   <script src="views/bower_components/morris.js/morris.min.js"></script>
 
   <!-- ChartJS http://www.chartjs.org/-->
-  <script src="views/bower_components/Chart.js/Chart.js"></script>
+  <script src="views/bower_components/chart.js/Chart.js"></script>
 
 
 
