@@ -1,56 +1,63 @@
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">        
-        <h1>
-            Administrar productos
-        </h1>
-        <ol class="breadcrumb">
+<?php
+
+if ($_SESSION["perfil"] == "Vendedor") {
+    echo '<script>
+      window.location = "inicio";
+    </script>';
+    return;
+}
+
+?>
+
+
+<div class="content-wrapper">
+  <section class="content-header">        
+      <h1>
+          Administrar productos
+      </h1>
+      <ol class="breadcrumb">
+      
+          <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+          <li class="active">Administrar productos</li>
+      
+      </ol>    
+  </section>
+
+  <section class="content">
+
+    <div class="box">
+
+        <div class="box-header with-border">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
+            Agregar producto
+          </button>
+        </div>
         
-            <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li class="active">Administrar productos</li>
-        
-        </ol>    
-    </section>
+        <div class="box-body">
+          <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
+            
+            <thead>
+              <tr>
+                <th id="first-column-th">#</th>
+                <th>Imagen</th>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Stock</th>
+                <th>Precio de compra</th>
+                <th>Precio de venta</th>
+                <th>Fecha de agregado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+          </table>
 
-    <section class="content">
+          <input type="hidden" value="<?php echo $_SESSION['perfil']; ?>" id="perfilOculto">
+        </div>
+    </div>
 
-      <div class="box">
-
-          <div class="box-header with-border">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
-              Agregar producto
-            </button>
-          </div>
-          
-          <div class="box-body">
-            <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
-              
-              <thead>
-                <tr>
-                  <th id="first-column-th">#</th>
-                  <th>Imagen</th>
-                  <th>Código</th>
-                  <th>Descripción</th>
-                  <th>Categoría</th>
-                  <th>Stock</th>
-                  <th>Precio de compra</th>
-                  <th>Precio de venta</th>
-                  <th>Fecha de agregado</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-
-              <tbody>
-              
-              </tbody>
-
-            </table>
-          </div>
-      </div>
-
-    </section>
-  </div>
+  </section>
+</div>
 
   <!-- Modal agregar producto -->
 
@@ -90,8 +97,8 @@
 
                       $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
-                      foreach($categorias as $key => $value){
-                        echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+                      foreach ($categorias as $key => $value) {
+                          echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
                       }
 
                     ?>

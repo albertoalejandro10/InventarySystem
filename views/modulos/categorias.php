@@ -1,70 +1,82 @@
+<?php
 
-  <div class="content-wrapper">
-    <section class="content-header">        
-        <h1>
-            Administrar categorías
-        </h1>
-        <ol class="breadcrumb">
+if ($_SESSION["perfil"] == "Vendedor") {
+    echo '<script>
+    window.location = "inicio";
+  </script>';
+    return;
+}
+
+?>
+
+<div class="content-wrapper">
+  <section class="content-header">        
+      <h1>
+          Administrar categorías
+      </h1>
+      <ol class="breadcrumb">
+      
+          <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+          <li class="active">Administrar categorías</li>
+      
+      </ol>    
+  </section>
+
+  <section class="content">
+
+    <div class="box">
+
+        <div class="box-header with-border">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
+            Agregar categoria
+          </button>
+        </div>
         
-            <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li class="active">Administrar categorías</li>
-        
-        </ol>    
-    </section>
+        <div class="box-body">
+          <table class="table table-bordered table-striped dt-responsive tablas">
+            
+            <thead>
+              <tr>
+                <th id="first-column-th">#</th>
+                <th>Categoria</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
 
-    <section class="content">
+            <tbody>
 
-      <div class="box">
+            <?php
 
-          <div class="box-header with-border">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
-              Agregar categoria
-            </button>
-          </div>
-          
-          <div class="box-body">
-            <table class="table table-bordered table-striped dt-responsive tablas">
-              
-              <thead>
-                <tr>
-                  <th id="first-column-th">#</th>
-                  <th>Categoria</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
+              $item = null;
+              $valor = null;
 
-              <tbody>
+              $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
-              <?php
+              foreach ($categorias as $key => $value) {
+                  echo
+                '<tr>
+                <td>'.($key+1).'</td>
+                <td class="text-uppercase">'.$value["categoria"].'</td>
+                <td>
+                  <div class="btn-group">
+                    <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>';
+                  if ($_SESSION["perfil"] == "Administrador") {
+                      echo '<button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                  }
+                  echo '</div>
+                </td>';
+              }
 
-                $item = null;
-                $valor = null;
+            ?>
 
-                $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+            </tbody>
 
-               foreach($categorias as $key => $value){
-                 echo 
-                 '<tr>
-                  <td>'.($key+1).'</td>
-                  <td class="text-uppercase">'.$value["categoria"].'</td>
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
-                    </div>
-                  </td>';
-                }
+          </table>
+        </div>
+    </div>
 
-              ?>
-
-              </tbody>
-
-            </table>
-          </div>
-      </div>
-
-    </section>
-  </div>
+  </section>
+</div>
 
   <!-- Modal agregar categoría -->
 
@@ -180,11 +192,11 @@
 
     </form>
 
-</div>
+  </div>
 </div>
 
 
-<?php 
+<?php
     
   $borrarCategoria = new ControladorCategorias();
   $borrarCategoria -> ctrBorrarCategoria();

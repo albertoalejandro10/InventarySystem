@@ -1,102 +1,115 @@
-  <div class="content-wrapper">
-    <section class="content-header">        
-        <h1>
-            Administrar clientes
-        </h1>
-        <ol class="breadcrumb">
+<?php
+
+if ($_SESSION["perfil"] == "Especial") {
+    echo '<script>
+      window.location = "inicio";
+    </script>';
+    return;
+}
+
+?>
+
+<div class="content-wrapper">
+  <section class="content-header">        
+      <h1>
+          Administrar clientes
+      </h1>
+      <ol class="breadcrumb">
+      
+          <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+          <li class="active">Administrar clientes</li>
+      
+      </ol>
+  </section>
+
+  <section class="content">
+
+    <div class="box">
+
+        <div class="box-header with-border">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
+            Agregar cliente
+          </button>
+        </div>
         
-            <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li class="active">Administrar clientes</li>
-        
-        </ol>
-    </section>
+        <div class="box-body">
+          <table class="table table-bordered table-striped dt-responsive tablas">
+            
+            <thead>
+              <tr>
+                <th id="first-column-th">#</th>
+                <th>Nombre</th>
+                <th>Documento ID</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Fecha de nacimiento</th>
+                <th>Total compras</th>
+                <th>Última compras</th>
+                <th>Ingreso al sistema</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
 
-    <section class="content">
+            <tbody>
 
-      <div class="box">
+            <?php
 
-          <div class="box-header with-border">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
-              Agregar cliente
-            </button>
-          </div>
-          
-          <div class="box-body">
-            <table class="table table-bordered table-striped dt-responsive tablas">
-              
-              <thead>
-                <tr>
-                  <th id="first-column-th">#</th>
-                  <th>Nombre</th>
-                  <th>Documento ID</th>
-                  <th>Correo</th>
-                  <th>Teléfono</th>
-                  <th>Dirección</th>
-                  <th>Fecha de nacimiento</th>
-                  <th>Total compras</th>
-                  <th>Última compras</th>
-                  <th>Ingreso al sistema</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
+              $item = null;
+              $valor = null;
 
-              <tbody>
+              $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
 
-              <?php
+              foreach ($clientes as $key => $value) {
+                  echo '<tr>
 
-                $item = null;
-                $valor = null;
+                        <td>'.($key+1).'</td>
 
-                $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+                        <td>'.$value["nombre"].'</td>
 
-                foreach ($clientes as $key => $value) {
-                    echo '<tr>
+                        <td>'.$value["documento"].'</td>
 
-                          <td>'.($key+1).'</td>
+                        <td>'.$value["email"].'</td>
 
-                          <td>'.$value["nombre"].'</td>
+                        <td>'.$value["telefono"].'</td>
 
-                          <td>'.$value["documento"].'</td>
+                        <td>'.$value["direccion"].'</td>
 
-                          <td>'.$value["email"].'</td>
+                        <td>'.$value["fecha_nacimiento"].'</td>             
 
-                          <td>'.$value["telefono"].'</td>
+                        <td>'.$value["compras"].'</td>
 
-                          <td>'.$value["direccion"].'</td>
+                        <td>'.$value["ultima_compra"].'</td>
 
-                          <td>'.$value["fecha_nacimiento"].'</td>             
+                        <td>'.$value["fecha"].'</td>
 
-                          <td>'.$value["compras"].'</td>
+                        <td>
 
-                          <td>'.$value["ultima_compra"].'</td>
+                          <div class="btn-group">
+                              
+                            <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>';
 
-                          <td>'.$value["fecha"].'</td>
+                  if ($_SESSION["perfil"] == "Administrador") {
+                      echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                  }
 
-                          <td>
+                  echo '</div>  
 
-                            <div class="btn-group">
-                                
-                              <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+                        </td>
 
-                              <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                      </tr>';
+              }
 
-                            </div>  
+              ?>
 
-                          </td>
+            </tbody>
 
-                        </tr>';
-                }
+          </table>
+        </div>
+    </div>
 
-                ?>
-
-              </tbody>
-
-            </table>
-          </div>
-      </div>
-
-    </section>
-  </div>
+  </section>
+</div>
 
   <!-- Modal agregar usuario -->
 
