@@ -415,7 +415,7 @@ class ControladorVentas
 					<td style='font-weight:bold; border:1px solid #eee;'>CANTIDAD</td>
 					<td style='font-weight:bold; border:1px solid #eee;'>PRODUCTOS</td>
 					<td style='font-weight:bold; border:1px solid #eee;'>IMPUESTO</td>
-					<td style='font-weight:bold; border:1px solid #eee;'>NETO</td>		
+					<td style='font-weight:bold; border:1px solid #eee;'>NETO</td>
 					<td style='font-weight:bold; border:1px solid #eee;'>TOTAL</td>		
 					<td style='font-weight:bold; border:1px solid #eee;'>METODO DE PAGO</td	
 					<td style='font-weight:bold; border:1px solid #eee;'>FECHA</td>		
@@ -455,5 +455,16 @@ class ControladorVentas
 
             echo "</table>";
         }
+    }
+
+    /* Suma total ventas */
+
+    public static function ctrSumaTotalVentas()
+    {
+        $tabla = "ventas";
+
+        $respuesta = ModeloVentas::mdlSumaTotalVentas($tabla);
+
+        return $respuesta;
     }
 }
