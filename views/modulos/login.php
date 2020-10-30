@@ -6,7 +6,7 @@
   </div>
 
   <div class="login-box-body">
-    <p class="login-box-msg">Ingresar al sistema de inventario</p>
+    <p class="login-box-msg title-login"><strong>Ingresar al sistema de inventario</strong></p>
 
     <form method="post">
 
