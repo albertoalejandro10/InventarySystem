@@ -1,9 +1,10 @@
+<div id="back"></div>
+
 <div class="login-box">
   <div class="login-logo">
-      <img src="views/img/plantilla/logo-blanco-bloque.png" alt="fondo" class="img-responsive" style="padding: 30px 100px 0px 100px">
+      <img src="views/img/plantilla/logo-blanco-capilla.png" alt="fondo" class="img-responsive">
   </div>
 
-  <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Ingresar al sistema de inventario</p>
 
@@ -19,11 +20,12 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
-      <div class="row">
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+      <div class="container-fluid">
+       <div class="row w-100 align-items-center">
+          <div class="text-center">
+            <button type="submit" class="btn btn-outline-success" id="btn-login">Ingresar</button>
+          </div>
         </div>
-
       </div>
     </form>
     <?php

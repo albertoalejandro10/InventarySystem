@@ -74,7 +74,7 @@ var bar = new Morris.Bar({
 
   ?>
   ],
-  barColors: ['#0af'],
+  barColors: ['#1AD0FB'],
   xkey: 'y',
   ykeys: ['a'],
   labels: ['ventas'],

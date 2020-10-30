@@ -47,7 +47,7 @@ if ($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor") {
             }
 
             ?>           
-           <button class="btn btn-success" style="margin-top:5px">Descargar reporte en Excel</button>
+           <button class="btn btn-info" style="margin-top:5px">Descargar reporte en Excel</button>
           </a>
 
         </div>

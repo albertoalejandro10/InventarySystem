@@ -10,13 +10,12 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Stockpile</title>
+  <title>Capillas del Este</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="icon" href="views/img/plantilla/icono-negro.png">
+  <link rel="icon" href="views/img/plantilla/logoCapillas1.png">
   <link rel="stylesheet" href="resources/css/main.css">
-
 
   <!-- Plugins de CSS -->
   <!-- Bootstrap 3.3.7 -->
@@ -94,11 +93,8 @@
   <!-- ChartJS http://www.chartjs.org/-->
   <script src="views/bower_components/chart.js/Chart.js"></script>
 
-
-
 </head>
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
-<!-- Site wrapper -->
 
     <?php
       if (isset($_SESSION["iniciarSesion"]) && $_SESSION['iniciarSesion'] == "ok") {
@@ -138,10 +134,6 @@
           include "modulos/login.php";
       }
     ?>
-
-
-
-
 
 <script src="views/js/plantilla.js"></script>
 

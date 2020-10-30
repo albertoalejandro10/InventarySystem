@@ -3,12 +3,12 @@
     <a href="inicio" class="logo">
         <!-- Logo mini -->
         <span class="logo-mini">
-            <img src="views/img/plantilla/icono-blanco.png" class="img-responsive" style="padding:10px" alt="icono blanco">
+            <img src="views/img/plantilla/logoCapillas1.png" class="img-responsive" style="padding:2px" alt="icono pequeno">
         </span>
 
         <!-- Logo normal -->
         <span class="logo-lg">
-            <img src="views/img/plantilla/logo-blanco-lineal.png" alt="icono blanco" class="img-responsive" style="padding: 10px 0px">
+            <img src="views/img/plantilla/logo-grande-capilla.png" alt="icono grande" class="img-responsive" style="padding: 10px 0px">
         </span>
     </a>
 
@@ -29,13 +29,9 @@
                         <?php
 
                         if ($_SESSION["foto"] != "") {
-
                             echo '<img src="'.$_SESSION["foto"].'" class="user-image ">';
-
-                        }else{
-
+                        } else {
                             echo '<img src="views/img/usuarios/default/anonymous.png" alt="perfil" class="user-image">';
-
                         }
                         
                         ?>
@@ -56,8 +52,4 @@
             </ul>
         </div>
     </nav>
-
-
-
-
 </header>

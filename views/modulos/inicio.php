@@ -13,6 +13,13 @@
   </section>
 
   <section class="content">
+    <?php
+        echo '<div class="box box-success">
+          <div class="box-header">
+            <h1><span style="color:#7d7f7d">Bienvenid@<span> <strong style="color:#00A65A";>'.$_SESSION["nombre"].'</strong></h1>
+          </div>
+        </div>';
+    ?>
     <div class="row">
       <?php
       if ($_SESSION["perfil"] == "Administrador") {
@@ -43,17 +50,7 @@
         ?>
       </div>
       <div class="col-lg-12">
-        <?php
 
-          if ($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor") {
-              echo '<div class="box box-success">
-                <div class="box-header">
-                  <h1><span style="color:#7d7f7d">Bienvenid@<span> <strong style="color:#00A65A";>'.$_SESSION["nombre"].'</strong></h1>
-                </div>
-              </div>';
-          }
-
-        ?>
       </div>
     </div>
   </section>

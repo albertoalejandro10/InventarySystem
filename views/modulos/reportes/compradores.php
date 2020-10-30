@@ -36,7 +36,7 @@ $noRepetirNombres = array_unique($arrayClientes);
 VENDEDORES
 ======================================-->
 
-<div class="box box-primary">
+<div class="box box-success">
 	
 	<div class="box-header with-border">
     
@@ -71,7 +71,7 @@ var bar = new Morris.Bar({
 
   ?>
   ],
-  barColors: ['#f6a'],
+  barColors: ['#1AD0FB'],
   xkey: 'y',
   ykeys: ['a'],
   labels: ['ventas'],
