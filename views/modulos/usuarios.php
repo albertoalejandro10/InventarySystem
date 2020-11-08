@@ -205,11 +205,7 @@ if ($_SESSION["perfil"] == "Vendedor" || $_SESSION["perfil"] == "Especial") {
   </div>
 </div>
 
-
-
-
-
-  <!-- MODAL EDITAR USUARIO -->
+<!-- MODAL EDITAR USUARIO -->
 
 <div id="modalEditarUsuario" class="modal fade" role="dialog">
 

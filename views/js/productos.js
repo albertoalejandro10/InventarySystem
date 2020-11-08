@@ -54,7 +54,7 @@ $('.tablaProductos').DataTable( {
 } );
 
 
-/*CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO*/
+/* CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO */
 $("#nuevaCategoriaProducto").change(function(){
 
 	var idCategoria = $(this).val();
@@ -110,7 +110,7 @@ $("#nuevoPrecioCompra, #editarPrecioCompra").change(function(){
 
 })
 
-/*CAMBIO DE PORCENTAJE*/
+/* CAMBIO DE PORCENTAJE */
 $(".nuevoPorcentaje").change(function(){
 
 	if($(".porcentaje").prop("checked")){
@@ -145,7 +145,7 @@ $(".porcentaje").on("ifChecked",function(){
 
 })
 
-/*SUBIENDO LA FOTO DEL PRODUCTO*/
+/* SUBIENDO LA FOTO DEL PRODUCTO */
 
 $(".nuevaImagen").change(function(){
 
@@ -256,7 +256,7 @@ $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
 
 })
 
-/*ELIMINAR PRODUCTO*/
+/* ELIMINAR PRODUCTO */
 
 $(".tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
 
@@ -280,8 +280,5 @@ $(".tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
         	window.location = "index.php?ruta=productos&idProducto="+idProducto+"&imagen="+imagen+"&codigo="+codigo;
 
         }
-
-
 	})
-
 })

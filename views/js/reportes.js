@@ -6,8 +6,6 @@ if(localStorage.getItem("capturarRango2") != null){
 	$("#daterange-btn2 span").html('<i class="fa fa-calendar"></i> Rango de fecha');
 }
 
-
-
 /*RANGO DE FECHAS*/
 
 $('#daterange-btn2').daterangepicker(

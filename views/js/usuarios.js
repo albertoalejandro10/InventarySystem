@@ -1,11 +1,9 @@
-/*SUBIENDO LA FOTO DEL USUARIO*/
+/* SUBIENDO LA FOTO DEL USUARIO */
 $(".nuevaFoto").change(function(){
 
 	var imagen = this.files[0];
 	
-	/*
-  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
-  	*/
+	/* VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG */
 
   	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
 
@@ -45,7 +43,7 @@ $(".nuevaFoto").change(function(){
   	}
 })
 
-/*EDITAR USUARIO*/
+/* EDITAR USUARIO */
 $(document).on("click", ".btnEditarUsuario", function(){
 
 	var idUsuario = $(this).attr("idUsuario");
@@ -84,7 +82,7 @@ $(document).on("click", ".btnEditarUsuario", function(){
 
 })
 
-/*ACTIVAR USUARIO*/
+/* ACTIVAR USUARIO */
 $(document).on("click", ".btnActivar", function(){
 
 	var idUsuario = $(this).attr("idUsuario");
@@ -144,7 +142,7 @@ $(document).on("click", ".btnActivar", function(){
 
 })
 
-/*REVISAR SI EL USUARIO YA ESTÁ REGISTRADO*/
+/* REVISAR SI EL USUARIO YA ESTÁ REGISTRADO */
 
 $("#nuevoUsuario").change(function(){
 
@@ -178,7 +176,7 @@ $("#nuevoUsuario").change(function(){
 	})
 })
 
-/* Eliminar usuario*/
+/* Eliminar usuario */
 $(document).on("click", ".btnEliminarUsuario", function(){
 
   var idUsuario = $(this).attr("idUsuario");
@@ -201,7 +199,5 @@ $(document).on("click", ".btnEliminarUsuario", function(){
       window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
 
     }
-
   })
-
 })

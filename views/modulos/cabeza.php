@@ -8,7 +8,7 @@
 
         <!-- Logo normal -->
         <span class="logo-lg">
-            <img src="views/img/plantilla/logo-grande-capilla.png" alt="icono grande" class="img-responsive" style="padding: 10px 0px">
+            <img src="views/img/plantilla/logo-grande-capilla.png" alt="icono grande" class="img-responsive header-logo">
         </span>
     </a>
 

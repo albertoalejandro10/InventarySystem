@@ -55,9 +55,7 @@ $('.tablaVentas').DataTable( {
 
 } );
 
-/*
-AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
-*/
+/* AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA */
 
 $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
@@ -87,9 +85,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
           	var stock = respuesta["stock"];
           	var precio = respuesta["precio_venta"];
 
-          	/*
-          	EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
-          	*/
+          	/* EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO */
 
           	if(stock == 0){
 
@@ -169,9 +165,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 });
 
-/*
-CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
-*/
+/* CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA */
 
 $(".tablaVentas").on("draw.dt", function(){
 
@@ -193,9 +187,7 @@ $(".tablaVentas").on("draw.dt", function(){
 })
 
 
-/*
-QUITAR PRODUCTOS DE LA VENTA Y RECUPERAR BOTÓN
-*/
+/* QUITAR PRODUCTOS DE LA VENTA Y RECUPERAR BOTÓN */
 
 var idQuitarProducto = [];
 
@@ -207,9 +199,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
 
-	/*
-	ALMACENAR EN EL LOCALSTORAGE EL ID DEL PRODUCTO A QUITAR
-	*/
+	/* ALMACENAR EN EL LOCALSTORAGE EL ID DEL PRODUCTO A QUITAR */
 
 	if(localStorage.getItem("quitarProducto") == null){
 
@@ -254,9 +244,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 })
 
 
-/*
-AGREGANDO PRODUCTOS DESDE EL BOTÓN PARA DISPOSITIVOS
-*/
+/* AGREGANDO PRODUCTOS DESDE EL BOTÓN PARA DISPOSITIVOS */
 
 var numProducto = 0;
 
@@ -361,9 +349,7 @@ $(".btnAgregarProducto").click(function(){
 
 })
 
-/*
-SELECCIONAR PRODUCTO
-*/
+/* SELECCIONAR PRODUCTO */
 
 $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
 
@@ -457,9 +443,7 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
 })
 
-/*
-SUMAR TODOS LOS PRECIOS
-*/
+/* SUMAR TODOS LOS PRECIOS */
 
 function sumarTotalPrecios(){
 
@@ -714,7 +698,7 @@ $('.tablaVentas').on( 'draw.dt', function(){
 })
 
 
-/*BORRAR VENTA*/
+/* BORRAR VENTA */
 $(".tablas").on("click", ".btnEliminarVenta", function(){
 
   var idVenta = $(this).attr("idVenta");
@@ -738,7 +722,7 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
 
 })
 
-/*Imprimir factura*/
+/* Imprimir factura */
 
 $(".tablas").on("click", ".btnImprimirFactura", function(){
 
@@ -748,7 +732,7 @@ $(".tablas").on("click", ".btnImprimirFactura", function(){
 })
 
 
-/*RANGO DE FECHAS*/
+/* RANGO DE FECHAS */
 
 $('#daterange-btn').daterangepicker(
 	{

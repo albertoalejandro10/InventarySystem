@@ -19,6 +19,25 @@
   justify-content: center;
 }
 
-.title-login{
+.title-login {
   color: #502954;
+}
+/* Header */
+.header-logo {
+  padding: 10px 0px;
+}
+
+@media (min-width: 400px) and (max-width: 767px) {
+  .header-logo {
+    max-width: 46% !important;
+    margin: auto;
+    padding: 6px 0px;
+  }
+}
+
+@media (max-width: 399px) {
+  .header-logo {
+    max-width: 80% !important;
+    margin: auto;
+  }
 }

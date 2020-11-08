@@ -1,10 +1,6 @@
-/*=============================================
-EDITAR CLIENTE
-=============================================*/
-// $(".tablas").on("click", ".btnEditarCliente", function(){
-
-$(".btnEditarCliente").click(function(){
-
+/* EDITAR CLIENTE */
+$(".tablas").on("click", ".btnEditarCliente", function(){
+  
 	var idCliente = $(this).attr("idCliente");
 
 	var datos = new FormData();
@@ -21,23 +17,21 @@ $(".btnEditarCliente").click(function(){
       dataType:"json",
       success:function(respuesta){
 
-      	   $("#idCliente").val(respuesta["id"]);
-	       $("#editarCliente").val(respuesta["nombre"]);
-	       $("#editarDocumentoId").val(respuesta["documento"]);
-	       $("#editarEmail").val(respuesta["email"]);
-	       $("#editarTelefono").val(respuesta["telefono"]);
-	       $("#editarDireccion").val(respuesta["direccion"]);
-           $("#editarFechaNacimiento").val(respuesta["fecha_nacimiento"]);
+        $("#idCliente").val(respuesta["id"]);
+        $("#editarCliente").val(respuesta["nombre"]);
+        $("#editarDocumentoId").val(respuesta["documento"]);
+        $("#editarEmail").val(respuesta["email"]);
+        $("#editarTelefono").val(respuesta["telefono"]);
+        $("#editarDireccion").val(respuesta["direccion"]);
+        $("#editarFechaNacimiento").val(respuesta["fecha_nacimiento"]);
 
-	  }
+      }
 
   	})
 
 })
 
-/*=============================================
-ELIMINAR CLIENTE
-=============================================*/
+/* ELIMINAR CLIENTE */
 $(".tablas").on("click", ".btnEliminarCliente", function(){
 
 	var idCliente = $(this).attr("idCliente");
