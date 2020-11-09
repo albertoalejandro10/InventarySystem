@@ -24,7 +24,9 @@ class ControladorVentas
                 $tablaProductos = "productos";
                 $item = "id";
                 $valor = $value["id"];
-                $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor);
+                $orden = "id";
+                
+                $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor, $orden);
 
                 $item1a = "ventas";
                 $valor1a = $value["cantidad"] + $traerProducto["ventas"];

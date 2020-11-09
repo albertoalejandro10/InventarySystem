@@ -406,9 +406,7 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
 	if(Number($(this).val()) > Number($(this).attr("stock"))){
 
-		/*
-		SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
-		*/
+		/* SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES */
 
 		$(this).val(1);
 
