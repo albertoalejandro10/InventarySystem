@@ -27,11 +27,21 @@
   padding: 10px 0px;
 }
 
+#header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (min-width: 400px) and (max-width: 767px) {
-  .header-logo {
+  /* .header-logo {
     max-width: 46% !important;
     margin: auto;
     padding: 6px 0px;
+  } */
+  .header-logo {
+    text-align: center;
+    max-width: 46% !important;
   }
 }
 
@@ -39,5 +49,11 @@
   .header-logo {
     max-width: 80% !important;
     margin: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .small-box h3 {
+    font-size: 20px !important;
   }
 }
