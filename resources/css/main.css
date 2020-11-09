@@ -9,6 +9,11 @@
   width: 10px;
 }
 
+#productos-color {
+  color: #3c8dbc;
+  font-weight: bold;
+}
+
 #btn-login {
   background: #502954;
   color: #fff;

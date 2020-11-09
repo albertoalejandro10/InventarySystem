@@ -86,7 +86,7 @@ if ($_SESSION["perfil"] == "Especial") {
                   <div class="input-group">
 
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                    <select name="seleccionarCliente" id="seleccionarCliente" class="form-control">
+                    <select name="seleccionarCliente" id="seleccionarCliente" class="form-control" required>
                       <option value="">Seleccionar cliente</option>
 
                       <?php

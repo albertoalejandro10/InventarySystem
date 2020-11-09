@@ -50,13 +50,13 @@ $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
         <div class="product-info">
 
-          <a href="" class="product-title">
+          <h5 id="productos-color" class="product-title">
 
             '.$productos[$i]["descripcion"].'
 
             <span class="label label-warning pull-right">$'.$productos[$i]["precio_venta"].'</span>
 
-          </a>
+          </h5>
     
        </div>
 

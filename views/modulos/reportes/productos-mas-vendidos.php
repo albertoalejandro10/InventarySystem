@@ -15,10 +15,28 @@ $totalVentas = ControladorProductos::ctrMostrarSumaVentas();
 
 <!-- PRODUCTOS MÁS VENDIDOS -->
 
-<div class="box box-default">
+<div class="box box-success">
 	<div class="box-header with-border">
-      <h3 class="box-title">Productos más vendidos</h3>
+    <h3 class="box-title">Productos más vendidos</h3>
+
+    <div class="box-tools pull-right">
+  
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+  
+        <i class="fa fa-minus"></i>
+  
+      </button>
+  
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+  
+        <i class="fa fa-times"></i>
+  
+      </button>
+  
     </div>
+  </div>
+    
+
 	<div class="box-body">
       	<div class="row">
 
@@ -61,16 +79,16 @@ $totalVentas = ControladorProductos::ctrMostrarSumaVentas();
             for ($i = 0; $i <5; $i++) {
                 echo '<li>
                     
-                    <a>
+                      <a id="productos-color">
 
-                    <img src="'.$productos[$i]["imagen"].'" class="img-thumbnail" width="60px" style="margin-right:10px"> 
-                    '.$productos[$i]["descripcion"].'
+                        <img src="'.$productos[$i]["imagen"].'" class="img-thumbnail" width="60px" style="margin-right:10px"> 
+                        '.$productos[$i]["descripcion"].'
 
-                    <span class="pull-right text-'.$colores[$i].'">   
-                    '.ceil($productos[$i]["ventas"]*100/$totalVentas["total"]).'%
-                    </span>
-                        
-                    </a>
+                        <span class="pull-right text-'.$colores[$i].'">   
+                        '.ceil($productos[$i]["ventas"]*100/$totalVentas["total"]).'%
+                        </span>
+                          
+                      </a>
 
                     </li>';
             }
