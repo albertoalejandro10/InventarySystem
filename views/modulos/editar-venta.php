@@ -336,8 +336,7 @@
 
 </div>
 
-<!--MODAL AGREGAR CLIENTE
--->
+<!--MODAL AGREGAR CLIENTE-->
 
 <div id="modalAgregarCliente" class="modal fade" role="dialog">
   

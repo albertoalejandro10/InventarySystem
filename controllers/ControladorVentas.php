@@ -137,8 +137,9 @@ class ControladorVentas
 
                     $item = "id";
                     $valor = $value["id"];
+                    $orden = "id";
 
-                    $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor);
+                    $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor, $orden);
 
                     $item1a = "ventas";
                     $valor1a = $traerProducto["ventas"] - $value["cantidad"];
@@ -176,8 +177,9 @@ class ControladorVentas
 
                     $item_2 = "id";
                     $valor_2 = $value["id"];
+                    $orden = "id";
 
-                    $traerProducto_2 = ModeloProductos::mdlMostrarProductos($tablaProductos_2, $item_2, $valor_2);
+                    $traerProducto_2 = ModeloProductos::mdlMostrarProductos($tablaProductos_2, $item_2, $valor_2, $orden);
 
                     $item1a_2 = "ventas";
                     $valor1a_2 = $value["cantidad"] + $traerProducto_2["ventas"];

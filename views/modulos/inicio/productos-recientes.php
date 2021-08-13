@@ -14,7 +14,7 @@ $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
   <div class="box-header with-border">
 
     <h3 class="box-title">Productos añadidos recientemente</h3>
-
+<!-- 
     <div class="box-tools pull-right">
 
       <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -29,7 +29,7 @@ $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
       </button>
 
-    </div>
+    </div> -->
 
   </div>
   
