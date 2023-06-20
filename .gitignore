@@ -18,3 +18,9 @@ Desktop.ini
 !.htaccess
 !/.gitignore
 !/.travis.yml
+
+php_error_log
+
+./views/img/productos
+./views/img/usuarios
+./views/bower_components

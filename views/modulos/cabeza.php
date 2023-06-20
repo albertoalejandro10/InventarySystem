@@ -45,8 +45,8 @@
                     <!-- dropdown-toggle -->
                     <ul class="dropdown-menu">
                         <li class="user-body">
-                            <div class="pull-right">
-                                <a href="salir" class="btn btn-default btn-flat">Salir</a>
+                            <div class="text-center">
+                                <a href="salir" class="btn btn-default btn-login"><i class="fa fa-sign-out"></i>&nbsp; Cerrar Sesión</a>
                             </div>
                         </li>
                     </ul>

@@ -3,13 +3,10 @@
 require_once "../controllers/ControladorCategorias.php";
 require_once "../models/ModeloCategorias.php";
 
-class AjaxCategorias{
-    
+class AjaxCategorias {
     /* Validar no repetir categoría */
     public $validarCategoria;
-
-    public function ajaxValidarCategoria(){
-
+    public function ajaxValidarCategoria() {
         $item = "categoria";
         $valor = $this->validarCategoria;
 
@@ -21,7 +18,7 @@ class AjaxCategorias{
     /* Editar Categoria */
     public $idCategoria;
     
-    public function ajaxEditarCategoria(){
+    public function ajaxEditarCategoria() {
         $item = "id";
         $valor = $this->idCategoria;
 
@@ -33,19 +30,15 @@ class AjaxCategorias{
 }
 
 /* Validar no repetir categoría */
-if(isset($_POST["validarCategoria"])){
-    
+if(isset($_POST["validarCategoria"])) {
     $valCategoria = new AjaxCategorias();
     $valCategoria->validarCategoria = $_POST["validarCategoria"];
     $valCategoria->ajaxValidarCategoria();
-
 }
 
 /* Editar Categoria */
 if(isset($_POST["idCategoria"])){
-
     $categoria = new AjaxCategorias();
     $categoria->idCategoria = $_POST["idCategoria"];
     $categoria->ajaxEditarCategoria();
-
 }

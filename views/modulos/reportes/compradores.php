@@ -32,33 +32,21 @@ $noRepetirNombres = array_unique($arrayClientes);
 
 ?>
 
-<!--=====================================
-VENDEDORES
-======================================-->
-
+<!-- Vendedores -->
 <div class="box box-success">
-	
 	<div class="box-header with-border">
-    
-    	<h3 class="box-title">Compradores</h3>
-  
+    	<h3 class="box-title">Clientes - Movimientos</h3>
   	</div>
-
   	<div class="box-body">
-  		
 		<div class="chart-responsive">
-			
-			<div class="chart" id="bar-chart2" style="height: 300px;"></div>
-
+			<div class="chart" id="bar-chart2" style="height: 240px;"></div>
 		</div>
-
   	</div>
-
 </div>
 
 <script>
 	
-//BAR CHART
+// BAR CHART
 var bar = new Morris.Bar({
   element: 'bar-chart2',
   resize: true,
@@ -71,12 +59,13 @@ var bar = new Morris.Bar({
 
   ?>
   ],
-  barColors: ['#1AD0FB'],
+  barColors: ['#3c8dbc'],
   xkey: 'y',
   ykeys: ['a'],
-  labels: ['ventas'],
-  preUnits: '$',
-  hideHover: 'auto'
+  labels: ['Ventas'],
+  preUnits: 'VES ',
+  hideHover: 'auto',
+  labelColor: '#FFF'
 });
 
 

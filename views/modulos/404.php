@@ -1,35 +1,28 @@
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<div class="content-wrapper">
     <section class="content-header">        
         <h1>
-            Página no encontrada
+            <i class="fa fa-exclamation" aria-hidden="true"></i>&nbsp; Página no encontrada
         </h1>
         <ol class="breadcrumb">
-        
             <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li class="active">Página no encontrada</li>
-        
         </ol>    
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <div class="error-page">
+        <div class="error-page mt-4">
             <h2 class="headline text-primary">404</h2>
             <div class="error-content">
-                <h3>
+                <h1>
                     <i class="fa fa-warning text-primary"></i>
-                    Ooops! Página no encontrada.
-                </h3>
-                <p>
-                    Ingresa al menú lateral y allí podras encontrar las paginas disponibles.
+                    Página no encontrada.
+                </h1>
+                <p class="h4">
+                    Ingresa al menú lateral y allí podras encontrar las paginas disponibles. <br />
                     También puedes regresar haciendo <a href="inicio">Click Aquí.</a> 
                 </p>
             </div>
         </div>
-
     </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+</div>

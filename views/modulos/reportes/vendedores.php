@@ -13,13 +13,13 @@ foreach ($ventas as $key => $valueVentas) {
     foreach ($usuarios as $key => $valueUsuarios) {
         if ($valueUsuarios["id"] == $valueVentas["id_vendedor"]) {
 
-        #Capturamos los vendedores en un array
+            // Capturamos los vendedores en un array
             array_push($arrayVendedores, $valueUsuarios["nombre"]);
 
-            #Capturamos las nombres y los valores netos en un mismo array
+            // Capturamos las nombres y los valores netos en un mismo array
             $arraylistaVendedores = array($valueUsuarios["nombre"] => $valueVentas["neto"]);
 
-            #Sumamos los netos de cada vendedor
+            // Sumamos los netos de cada vendedor
 
             foreach ($arraylistaVendedores as $key => $value) {
                 $sumaTotalVendedores[$key] += $value;
@@ -28,34 +28,22 @@ foreach ($ventas as $key => $valueVentas) {
     }
 }
 
-#Evitamos repetir nombre
+// Evitamos repetir nombre
 $noRepetirNombres = array_unique($arrayVendedores);
 
 ?>
 
-
-<!--=====================================
-VENDEDORES
-======================================-->
-
+<!-- Vendedores -->
 <div class="box box-success">
-	
 	<div class="box-header with-border">
-    
-    	<h3 class="box-title">Vendedores</h3>
-  
+    	<h3 class="box-title">Usuarios - Movimientos</h3>
   	</div>
 
   	<div class="box-body">
-  		
 		<div class="chart-responsive">
-			
-			<div class="chart" id="bar-chart1" style="height: 300px;"></div>
-
+			<div class="chart" id="bar-chart1" style="height: 240px;"></div>
 		</div>
-
   	</div>
-
 </div>
 
 <script>
@@ -74,11 +62,11 @@ var bar = new Morris.Bar({
 
   ?>
   ],
-  barColors: ['#1AD0FB'],
+  barColors: ['#3c8dbc'],
   xkey: 'y',
   ykeys: ['a'],
-  labels: ['ventas'],
-  preUnits: '$',
+  labels: ['Ventas'],
+  preUnits: 'VES ',
   hideHover: 'auto'
 });
 

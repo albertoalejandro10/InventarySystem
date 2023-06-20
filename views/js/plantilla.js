@@ -1,7 +1,6 @@
 /* Sidebar menu */
 $('.sidebar-menu').tree();
 
-
 $('.tablas').DataTable({
     "language": {
 

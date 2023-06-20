@@ -1,18 +1,14 @@
 <?php
 
-class ControladorUsuarios
-{
+class ControladorUsuarios {
     /*Ingreso de usuario*/
-
-    public static function ctrIngresoUsuario()
-    {
+    static public function ctrIngresoUsuario() {
         if (isset($_POST["ingUsuario"])) {
             if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
                preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])) {
+
                 $encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
-
                 $tabla = "usuarios";
-
                 $item = "usuario";
                 $valor = $_POST["ingUsuario"];
 
@@ -28,7 +24,6 @@ class ControladorUsuarios
                         $_SESSION["perfil"] = $respuesta["perfil"];
 
                         /* REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN */
-
                         date_default_timezone_set('America/Caracas');
 
                         $fecha = date('Y-m-d');
@@ -63,16 +58,15 @@ class ControladorUsuarios
     }
 
     /*Registro de usuario*/
-    public static function ctrCrearUsuario()
-    {
+    static public function ctrCrearUsuario() {
         if (isset($_POST["nuevoUsuario"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST['nuevoUsuario']) &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST['nuevoPassword'])) {
                 $ruta = "";
+                
                 /* Validar imagen */
-                if (isset($_FILES["nuevaFoto"]["tmp_name"])) {
-
+                if (isset($_FILES["nuevaFoto"]["tmp_name"]) && $_FILES["nuevaFoto"]["tmp_name"] != "") {
 
                     //Con esto traemos las caracteristicas de la imagen; alto y ancho, width y height y otras caracteristicas.
                     list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
@@ -87,7 +81,7 @@ class ControladorUsuarios
                     mkdir($directorio, 0755);
 
                     /* De acuerdo al tipo de imagen aplicamos las funciones por defecto de php */
-
+                    // JPEG
                     if ($_FILES["nuevaFoto"]["type"] == "image/jpeg") {
                         /*Guardamos la imagen en el directorio*/
                         $aleatorio = mt_rand(100, 999);
@@ -103,8 +97,7 @@ class ControladorUsuarios
                         imagejpeg($destino, $ruta);
                     }
 
-
-
+                    // PNG
                     if ($_FILES["nuevaFoto"]["type"] == "image/png") {
                         /*Guardamos la imagen en el directorio*/
                         $aleatorio = mt_rand(100, 999);
@@ -123,38 +116,38 @@ class ControladorUsuarios
 
                 $tabla = "usuarios";
 
-
                 $encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+                /* REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN */
+                date_default_timezone_set('America/Caracas');
+                $fecha = date('Y-m-d');
+                $hora = date('H:i:s');
+                $fechaActual = $fecha.' '.$hora;
 
                 $datos = array("nombre" => $_POST["nuevoNombre"],
                                "usuario" => $_POST["nuevoUsuario"],
                                "password" => $encriptar,
                                "perfil" => $_POST["nuevoPerfil"],
-                               "foto" => $ruta);
-                    
+                               "foto" => $ruta,
+                               "estado" => 0,
+                               "ultimo_login" => "0000-00-00 00:00:00",
+                               "fecha" => $fechaActual);
+            
                 $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 
                 if ($respuesta == "ok") {
                     echo '<script>
     
                         swal({
-    
                             type: "success",
                             title: "¡El usuario ha sido guardado correctamente!",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
     
                         }).then(function(result){
-    
                             if(result.value){
-                            
                                 window.location = "usuarios";
-    
                             }
-    
                         });
-                    
-    
                         </script>';
                 }
             } else {
@@ -176,18 +169,14 @@ class ControladorUsuarios
         }
     }
 
-    public static function ctrMostrarUsuarios($item, $valor)
-    {
+    static public function ctrMostrarUsuarios($item, $valor) {
         $tabla = "usuarios";
-
         $respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
-
         return $respuesta;
     }
     
     /* Editar usuario */
-    public static function ctrEditarUsuario()
-    {
+    static public function ctrEditarUsuario() {
         if (isset($_POST["editarUsuario"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombre"])) {
 
@@ -289,23 +278,16 @@ class ControladorUsuarios
                     '<script>
     
                         swal({
-    
                             type: "success",
                             title: "¡El usuario ha sido guardado correctamente!",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
     
-                        }).then(function(result){
-    
-                            if(result.value){
-                            
+                        }).then(function(result) {
+                            if(result.value) {
                                 window.location = "usuarios";
-    
                             }
-    
                         });
-                    
-    
                         </script>';
                 }
             } else {
@@ -329,8 +311,7 @@ class ControladorUsuarios
 
     
     /*BORRAR USUARIO*/
-    public static function ctrBorrarUsuario()
-    {
+    static public function ctrBorrarUsuario() {
         if (isset($_GET["idUsuario"])) {
             $tabla ="usuarios";
             $datos = $_GET["idUsuario"];
@@ -351,13 +332,10 @@ class ControladorUsuarios
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then(function(result){
-								if (result.value) {
-
-								window.location = "usuarios";
-
-								}
-							})
-
+                            if (result.value) {
+                                window.location = "usuarios";
+                            }
+                        })
 				</script>';
             }
         }

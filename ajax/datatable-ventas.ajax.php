@@ -3,16 +3,9 @@
 require_once "../controllers/ControladorProductos.php";
 require_once "../models/ModeloProductos.php";
 
-
-class TablaProductosVentas
-{
-
-    /*
-     MOSTRAR LA TABLA DE PRODUCTOS
-    */
-
-    public function mostrarTablaProductosVentas()
-    {
+class TablaProductosVentas {
+    /* MOSTRAR LA TABLA DE PRODUCTOS */
+    public function mostrarTablaProductosVentas() {
         $item = null;
         $valor = null;
         $orden = "id";
@@ -30,28 +23,19 @@ class TablaProductosVentas
 
         for ($i = 0; $i < count($productos); $i++) {
 
-            /*
-             TRAEMOS LA IMAGEN
-            */
-
+            /* TRAEMOS LA IMAGEN */
             $imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
 
-            /*
-             STOCK
-            */
-
+            /* STOCK */
             if ($productos[$i]["stock"] <= 10) {
                 $stock = "<button class='btn btn-danger'>".$productos[$i]["stock"]."</button>";
-            } elseif ($productos[$i]["stock"] > 11 && $productos[$i]["stock"] <= 15) {
+            } else if ($productos[$i]["stock"] > 11 && $productos[$i]["stock"] <= 15) {
                 $stock = "<button class='btn btn-warning'>".$productos[$i]["stock"]."</button>";
             } else {
                 $stock = "<button class='btn btn-success'>".$productos[$i]["stock"]."</button>";
             }
 
-            /*
-             TRAEMOS LAS ACCIONES
-            */
-
+            /* TRAEMOS LAS ACCIONES */
             $botones =  "<div class='btn-group'><button class='btn btn-primary agregarProducto recuperarBoton' idProducto='".$productos[$i]["id"]."'>Agregar</button></div>";
 
             $datosJson .='[
@@ -74,8 +58,6 @@ class TablaProductosVentas
     }
 }
 
-/*
-ACTIVAR TABLA DE PRODUCTOS
-*/
+/* ACTIVAR TABLA DE PRODUCTOS */
 $activarProductosVentas = new TablaProductosVentas();
 $activarProductosVentas -> mostrarTablaProductosVentas();

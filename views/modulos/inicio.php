@@ -1,22 +1,19 @@
 <div class="content-wrapper">
   <section class="content-header">        
       <h1>
-          Tablero
+          Inicio
           <small>Panel de control</small>
       </h1>
       <ol class="breadcrumb">
-      
-          <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-          <li class="active">Tablero</li>
-      
-      </ol>    
+        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      </ol>
   </section>
 
   <section class="content">
     <?php
-        echo '<div class="box box-success">
+        echo '<div class="box box-purple">
           <div class="box-header">
-            <h1><span style="color:#7d7f7d">Bienvenid@<span> <strong style="color:#00A65A";>'.$_SESSION["nombre"].'</strong></h1>
+            <h1><span style="color:#7d7f7d">Bienvenid@<span> <strong class="text-primary">'.$_SESSION["nombre"].'</strong></h1>
           </div>
         </div>';
     ?>

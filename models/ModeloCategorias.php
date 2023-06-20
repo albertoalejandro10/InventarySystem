@@ -2,12 +2,10 @@
 
 require_once __DIR__ . "/Conexion.php";
 
-class ModeloCategorias
-{
+class ModeloCategorias {
     
     /* Crear categoria */
-    public static function mdlIngresarCategoria($tabla, $datos)
-    {
+    static public function mdlIngresarCategoria($tabla, $datos) {
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria) VALUES (:categoria)");
 
         $stmt->bindParam(":categoria", $datos, PDO::PARAM_STR);
@@ -22,8 +20,7 @@ class ModeloCategorias
         $stmt = null;
     }
     
-    public static function mdlMostrarCategorias($tabla, $item, $valor)
-    {
+    static public function mdlMostrarCategorias($tabla, $item, $valor) {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
@@ -39,15 +36,12 @@ class ModeloCategorias
 
             return $stmt -> fetchAll();
         }
-
         $stmt -> close();
-
         $stmt = null;
     }
 
     /* Editar categoria */
-    public static function mdlEditarCategoria($tabla, $datos)
-    {
+    static public function mdlEditarCategoria($tabla, $datos) {
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
 
         $stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
@@ -58,15 +52,12 @@ class ModeloCategorias
         } else {
             return "error";
         }
-
         $stmt->close();
         $stmt = null;
     }
 
     /* Borrar Categoria */
-    
-    public static function mdlBorrarCategoria($tabla, $datos)
-    {
+    static public function mdlBorrarCategoria($tabla, $datos) {
         $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
         $stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
@@ -76,9 +67,7 @@ class ModeloCategorias
         } else {
             return "error";
         }
-
         $stmt -> close();
-
         $stmt = null;
     }
 }

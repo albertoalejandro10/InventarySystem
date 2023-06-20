@@ -1,22 +1,73 @@
-/*Modal styles*/
-
-.modal-header {
-  background: #3c8dbc;
-  color: white;
-}
-
-#first-column-th {
-  width: 10px;
+#header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #productos-color {
-  color: #3c8dbc;
+  color: #502955;
   font-weight: bold;
 }
 
 #btn-login {
-  background: #502954;
+  background: #502955;
   color: #fff;
+}
+
+.login-box-body {
+  border-radius: 6%;
+  background: #C9D6FF !important;
+  background: -webkit-linear-gradient(to right, #E2E2E2, #f4c8fb) !important;
+  background: linear-gradient(to right, #E2E2E2, #f4c8fb) !important;
+}
+
+.box.box-purple {
+  border-top-color: #502955;
+}
+
+.table > tbody > tr > td {
+  padding: 4px !important;
+  vertical-align: middle !important;
+}
+
+/*Modal styles*/ 
+.modal-header {
+  background: #502955;
+  color: white;
+}
+
+.skin-blue .main-header .navbar {
+  background-color: #502955 !important;
+}
+
+.btn-primary {
+  background: #502955 !important;
+  border-color: #FFFFFF !important;
+}
+
+.text-primary {
+  color: #502955 !important;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu {
+  width: 168px !important;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-body {
+  padding: 10px;
+}
+
+.skin-blue .main-header .logo {
+  background-color: initial !important;
+}
+
+.pagination>.active>a {
+  background-color: #502955 !important;
+  border-color: #502955 !important;
+}
+
+.btn-warning {
+  background: #cf831b !important;
 }
 
 .container-fluid {
@@ -32,18 +83,55 @@
   padding: 10px 0px;
 }
 
-#header-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.error-page {
+  margin: 220px auto 0 auto !important; 
+}
+/* Table productos */
+.tablaProductos > tbody > tr > td:nth-child(1) {
+  text-align: center;
+}
+
+.tablaProductos > tbody > tr > td:nth-child(2) {
+  text-align: center;
+}
+
+.tablaProductos > tbody > tr > td:nth-child(6) {
+  text-align: center;
+}
+
+.tablaProductos > tbody > tr > td:nth-child(7) {
+  text-align: center;
+}
+
+.tablaProductos > tbody > tr > td:nth-child(8) {
+  text-align: center;
+}
+
+.tablaProductos > tbody > tr > td:nth-child(9) {
+  text-align: center;
+}
+
+.tablaProductos > tbody > tr > td:nth-child(10) {
+  text-align: center;
+}
+
+.tablaVentas > tbody > tr > td:nth-child(1) {
+  text-align: center;
+}
+
+.tablaVentas > tbody > tr > td:nth-child(2) {
+  text-align: center;
+}
+
+.tablaVentas > tbody > tr > td:nth-child(5) {
+  text-align: center;
+}
+
+.tablaVentas > tbody > tr > td:nth-child(6) {
+  text-align: center;
 }
 
 @media (min-width: 400px) and (max-width: 767px) {
-  /* .header-logo {
-    max-width: 46% !important;
-    margin: auto;
-    padding: 6px 0px;
-  } */
   .header-logo {
     text-align: center;
     max-width: 46% !important;

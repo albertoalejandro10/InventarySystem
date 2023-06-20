@@ -1,10 +1,8 @@
 /* Revisar si la categoria ya esta registrada */
-$("#nuevaCategoria").change(function(){
+$("#nuevaCategoria").change(function() {
 
 	$(".alert").remove();
-
-    var categoria = $(this).val();
-
+	var categoria = $(this).val();
 	var datos = new FormData();
 	datos.append("validarCategoria", categoria);
 
@@ -17,22 +15,15 @@ $("#nuevaCategoria").change(function(){
 	    processData: false,
 	    dataType: "json",
 	    success:function(respuesta){
-
-	    	if(respuesta){
-
+	    	if(respuesta) {
 	    		$("#nuevaCategoria").parent().after('<div class="alert alert-warning">Este categoria ya existe en la base de datos</div>');
-
 	    		$("#nuevaCategoria").val("");
-
 	    	}
-
 	    }
-
 	})
 })
 
-$(".tablas").on("click", ".btnEditarCategoria", function(){
-	
+$(".tablas").on("click", ".btnEditarCategoria", function() {
 	var idCategoria = $(this).attr("idCategoria");
 
 	var datos = new FormData();
@@ -41,23 +32,20 @@ $(".tablas").on("click", ".btnEditarCategoria", function(){
 	$.ajax({
 		url: "ajax/categorias.ajax.php",
 		method: "POST",
-      	data: datos,
-      	cache: false,
+			data: datos,
+			cache: false,
      	contentType: false,
      	processData: false,
      	dataType:"json",
      	success: function(respuesta){
-
      		$("#editarCategoria").val(respuesta["categoria"]);
      		$("#idCategoria").val(respuesta["id"]);
-
      	}
 	})
-
 })
 
 /* Eliminar categoria */
-$(".tablas").on("click", ".btnEliminarCategoria", function(){
+$(".tablas").on("click", ".btnEliminarCategoria", function() {
 
 	var idCategoria = $(this).attr("idCategoria");
 
@@ -71,12 +59,8 @@ $(".tablas").on("click", ".btnEliminarCategoria", function(){
 		cancelButtonText: 'Cancelar',
 		confirmButtonText: 'Si, borrar categoría!'
 	}).then(function(result){
-
 		if(result.value){
-
 			window.location = "index.php?ruta=categorias&idCategoria="+idCategoria;
-
 		}
-
 	})
 })

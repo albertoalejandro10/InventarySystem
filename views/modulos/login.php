@@ -23,7 +23,7 @@
       <div class="container-fluid">
        <div class="row w-100 align-items-center">
           <div class="text-center">
-            <button type="submit" class="btn btn-outline-success" id="btn-login">Ingresar</button>
+            <button type="submit" class="btn btn-outline-success" id="btn-login"><i class="fa fa-sign-in"></i>&nbsp; Ingresar</button>
           </div>
         </div>
       </div>

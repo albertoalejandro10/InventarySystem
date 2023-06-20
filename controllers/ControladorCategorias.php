@@ -1,8 +1,8 @@
 <?php
 
-class ControladorCategorias{
+class ControladorCategorias {
     /* Crear categorias */
-    static public function ctrCrearCategoria(){
+    static public function ctrCrearCategoria() {
 
         if(isset($_POST['nuevaCategoria'])){
             
@@ -52,16 +52,13 @@ class ControladorCategorias{
 
     /* Mostrar Categorias */
     static public function ctrMostrarCategorias($item, $valor){
-        $tabla = "categorias";
-
-        $respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
-
-        return $respuesta;
+			$tabla = "categorias";
+			$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
+			return $respuesta;
     }
-
     
     /* Editar categorias */
-	static public function ctrEditarCategoria(){
+	static public function ctrEditarCategoria() {
 
 		if(isset($_POST["editarCategoria"])){
 
@@ -85,19 +82,14 @@ class ControladorCategorias{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
-
-									window.location = "categorias";
-
+										window.location = "categorias";
 									}
 								})
 
 					</script>';
 
 				}
-
-
-			}else{
-
+			} else {
 				echo'<script>
 
 					swal({
@@ -107,46 +99,54 @@ class ControladorCategorias{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
-
-							window.location = "categorias";
-
+								window.location = "categorias";
 							}
 						})
 
 			  	</script>';
 
 			}
-
 		}
-
-    }
+	}
     
     /* Borrar categoria */
-	static public function ctrBorrarCategoria(){
+	static public function ctrBorrarCategoria() {
+		if(isset($_GET["idCategoria"])) {
 
-		if(isset($_GET["idCategoria"])){
+			$respuesta = ModeloProductos::mdlMostrarProductos("productos", "id_categoria", $_GET["idCategoria"], "ASC");
+			if(!$respuesta) {
+				$tabla ="categorias";
+				$datos = $_GET["idCategoria"];
+				$respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
+				if($respuesta == "ok"){
 
-			$tabla ="categorias";
-			$datos = $_GET["idCategoria"];
-
-			$respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
-
-			if($respuesta == "ok"){
-
-			echo'<script>
-				swal({
-					  type: "success",
-					  title: "La categoría ha sido borrada correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
-							if (result.value) {
-							    window.location = "categorias";
-							}
-						})
-				</script>';
+				echo'<script>
+					swal({
+							type: "success",
+							title: "La categoría ha sido borrada correctamente",
+							showConfirmButton: true,
+							confirmButtonText: "Cerrar"
+							}).then(function(result){
+								if (result.value) {
+									window.location = "categorias";
+								}
+							})
+					</script>';
+				}
+			} else {
+					echo'<script>
+					swal({
+							type: "error",
+							title: "La categoría no se puede eliminar porque tiene productos",
+							showConfirmButton: true,
+							confirmButtonText: "Cerrar"
+							}).then(function(result){
+								if (result.value) {
+									window.location = "categorias";
+								}
+							})
+					</script>';
 			}
 		}
-		
 	}
 }

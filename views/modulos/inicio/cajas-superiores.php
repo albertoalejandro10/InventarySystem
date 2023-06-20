@@ -4,7 +4,7 @@ $item = null;
 $valor = null;
 $orden = "id";
 
-$ventas = ControladorVentas::ctrSumaTotalVentas();
+$servicios = ControladorVentas::ctrTotalServicios();
 
 $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 $totalCategorias = count($categorias);
@@ -17,116 +17,53 @@ $totalProductos = count($productos);
 
 ?>
 
-
-
-<div class="col-lg-3 col-xs-6">
-
-  <div class="small-box bg-aqua">
-    
-    <div class="inner">
-      
-      <h3>$<?php echo number_format($ventas["total"], 2); ?></h3>
-
-      <p>Ventas</p>
-    
-    </div>
-    
-    <div class="icon">
-      
-      <i class="ion ion-social-usd"></i>
-    
-    </div>
-    
-    <a href="ventas" class="small-box-footer">
-      
-      Más info <i class="fa fa-arrow-circle-right"></i>
-    
-    </a>
-
-  </div>
+<div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="info-box">
+    <span class="info-box-icon bg-purple"><i class="ion ion-clipboard"></i></span>
+  <div class="info-box-content">
+  <span class="info-box-text"><strong>Servicios</strong></span>
+  <span class="info-box-number"><small class="text-purple">Servicios totales:&nbsp;</small><?php echo number_format($servicios[0]); ?></span>
+</div>
 
 </div>
 
-<div class="col-lg-3 col-xs-6">
+</div>
 
-  <div class="small-box bg-green">
-    
-    <div class="inner">
-    
-      <h3><?php echo number_format($totalCategorias); ?></h3>
-
-      <p>Categorías</p>
-    
-    </div>
-    
-    <div class="icon">
-    
-      <i class="ion ion-clipboard"></i>
-    
-    </div>
-    
-    <a href="categorias" class="small-box-footer">
-      
-      Más info <i class="fa fa-arrow-circle-right"></i>
-    
-    </a>
-
-  </div>
+<div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="info-box">
+    <span class="info-box-icon bg-green"><i class="ion ion-ios-people-outline"></i></span>
+  <div class="info-box-content">
+  <span class="info-box-text"><strong>Clientes</strong></span>
+  <span class="info-box-number"><small class="text-green">Historial de clientes:&nbsp;</small><?php echo number_format($totalClientes); ?></span>
+</div>
 
 </div>
 
-<div class="col-lg-3 col-xs-6">
+</div>
 
-  <div class="small-box bg-yellow">
-    
-    <div class="inner">
-    
-      <h3><?php echo number_format($totalClientes); ?></h3>
 
-      <p>Clientes</p>
-  
-    </div>
-    
-    <div class="icon">
-    
-      <i class="ion ion-person-add"></i>
-    
-    </div>
-    
-    <a href="clientes" class="small-box-footer">
+<div class="clearfix visible-sm-block"></div>
 
-      Más info <i class="fa fa-arrow-circle-right"></i>
-
-    </a>
-
-  </div>
+<div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="info-box">
+    <span class="info-box-icon bg-red"><i class="fa fa-th"></i></span>
+  <div class="info-box-content">
+  <span class="info-box-text"><strong>Categorías</strong></span>
+  <span class="info-box-number"><small class="text-red">Categorías guardadas:&nbsp;</small><?php echo number_format($totalCategorias); ?></span>
+</div>
 
 </div>
 
-<div class="col-lg-3 col-xs-6">
+</div>
 
-  <div class="small-box bg-red">
-  
-    <div class="inner">
-    
-      <h3><?php echo number_format($totalProductos); ?></h3>
+<div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="info-box">
+    <span class="info-box-icon bg-yellow"><i class="fa fa-product-hunt"></i></span>
+  <div class="info-box-content">
+  <span class="info-box-text"><strong>Productos</strong></span>
+  <span class="info-box-number"><small class="text-yellow">Cantidad total:&nbsp;</small><?php echo number_format($totalProductos); ?></span>
+</div>
 
-      <p>Productos</p>
-    
-    </div>
-    
-    <div class="icon">
-      
-      <i class="ion ion-ios-cart"></i>
-    
-    </div>
-    
-    <a href="productos" class="small-box-footer">
-      
-      Más info <i class="fa fa-arrow-circle-right"></i>
-    
-    </a>
-
-  </div>
+</div>
 
 </div>

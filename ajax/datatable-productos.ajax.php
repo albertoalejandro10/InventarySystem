@@ -6,12 +6,9 @@ require_once "../models/ModeloProductos.php";
 require_once "../controllers/ControladorCategorias.php";
 require_once "../models/ModeloCategorias.php";
 
-
-class TablaProductos
-{
+class TablaProductos {
     /* Mostrar la tabla de productos */
-    public function mostrarTablaProductos()
-    {
+    public function mostrarTablaProductos() {
         $item = null;
         $valor = null;
         $orden = "id";
@@ -44,7 +41,7 @@ class TablaProductos
             if (isset($_GET["perfilOculto"]) && $_GET["perfilOculto"] == "Especial") {
                 $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button></div>";
             } else {
-                $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>";
+                $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-trash'></i></button></div>";
             }
             
 

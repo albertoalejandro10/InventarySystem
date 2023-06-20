@@ -3,15 +3,11 @@
 require_once "../controllers/ControladorClientes.php";
 require_once "../models/ModeloClientes.php";
 
-class AjaxClientes{
+class AjaxClientes {
 
-	/*=============================================
-	EDITAR CLIENTE
-	=============================================*/	
-
+	/* EDITAR CLIENTE */
 	public $idCliente;
-
-	public function ajaxEditarCliente(){
+	public function ajaxEditarCliente() {
 
 		$item = "id";
 		$valor = $this->idCliente;
@@ -19,20 +15,12 @@ class AjaxClientes{
 		$respuesta = ControladorClientes::ctrMostrarClientes($item, $valor);
 
 		echo json_encode($respuesta);
-
-
 	}
-
 }
 
-/*=============================================
-EDITAR CLIENTE
-=============================================*/	
-
+/* EDITAR CLIENTE */	
 if(isset($_POST["idCliente"])){
-
 	$cliente = new AjaxClientes();
 	$cliente->idCliente = $_POST["idCliente"];
 	$cliente->ajaxEditarCliente();
-
 }

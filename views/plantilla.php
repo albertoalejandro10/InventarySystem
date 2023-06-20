@@ -1,7 +1,5 @@
 <?php
-
   session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +45,7 @@
   <!-- Morris chart -->
   <link rel="stylesheet" href="views/bower_components/morris.js/morris.css">
 
-
-    <!-- Plugins de Javascript -->
-
+  <!-- Plugins de Javascript -->
   <!-- jQuery 3 -->
   <script src="views/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -136,19 +132,12 @@
     ?>
 
 <script src="views/js/plantilla.js"></script>
-
 <script src="views/js/usuarios.js"></script>
-
 <script src="views/js/categorias.js"></script>
-
 <script src="views/js/productos.js"></script>
-
 <script src="views/js/clientes.js"></script>
-
 <script src="views/js/ventas.js"></script>
-
 <script src="views/js/reportes.js"></script>
-
 
 </body>
 </html>

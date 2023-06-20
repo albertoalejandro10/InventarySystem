@@ -48,7 +48,7 @@
             echo '<li class="treeview">
 				<a href="#">
 					<i class="fa fa-list-ul"></i>
-					<span>Ventas</span>
+					<span>Servicios</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
@@ -58,33 +58,30 @@
 					<li>
 						<a href="ventas">
 							<i class="fa fa-circle-o"></i>
-							<span>Administrar ventas</span>
+							<span>Administrar servicios</span>
 						</a>
 					</li>
 
 					<li>
 						<a href="crear-venta">
-							
 							<i class="fa fa-circle-o"></i>
-							<span>Crear venta</span>
-
+							<span>Crear servicios</span>
 						</a>
 					</li>';
 
             if ($_SESSION["perfil"] == "Administrador") {
                 echo '<li>
-					<a href="reportes">
-						<i class="fa fa-circle-o"></i>
-						<span>Reporte de ventas</span>
-					</a>
-				</li>';
+						<a href="reportes">
+							<i class="fa fa-circle-o"></i>
+							<span>Reporte de servicios</span>
+						</a>
+					</li>';
             }
         
             echo '</ul>
 			</li>';
         }
-    
-            ?>
+		?>
 		</ul>
 	 </section>
 </aside>

@@ -1,12 +1,8 @@
 <?php
 
-class ControladorClientes
-{
-
+class ControladorClientes {
     /* Crear clientes */
-
-    public static function ctrCrearCliente()
-    {
+    static public function ctrCrearCliente() {
         if (isset($_POST["nuevoCliente"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCliente"]) &&
                preg_match('/^[0-9]+$/', $_POST["nuevoDocumentoId"]) &&
@@ -15,12 +11,19 @@ class ControladorClientes
                preg_match('/^[#\,.\-a-zA-Z0-9 ]+$/', $_POST["nuevaDireccion"])) {
                 $tabla = "clientes";
 
+                date_default_timezone_set('America/Caracas');
+                $fecha = date('Y-m-d');
+                $hora = date('H:i:s');
+                $fechaActual = $fecha.' '.$hora;
+
                 $datos = array("nombre"=>$_POST["nuevoCliente"],
                                "documento"=>$_POST["nuevoDocumentoId"],
                                "email"=>$_POST["nuevoEmail"],
                                "telefono"=>$_POST["nuevoTelefono"],
                                "direccion"=>$_POST["nuevaDireccion"],
-                               "fecha_nacimiento"=>$_POST["nuevaFechaNacimiento"]);
+                               "compras" => 0,
+                               "ultima_compra" => $fechaActual,
+                               "fecha" => $fechaActual);
 
                 $respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
 
@@ -34,9 +37,7 @@ class ControladorClientes
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
-
-									window.location = "clientes";
-
+									    window.location = "clientes";
 									}
 								})
 
@@ -52,9 +53,7 @@ class ControladorClientes
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
-
-							window.location = "clientes";
-
+							    window.location = "clientes";
 							}
 						})
 
@@ -64,20 +63,14 @@ class ControladorClientes
     }
 
     /* Mostrar clientes */
-    public static function ctrMostrarClientes($item, $valor)
-    {
+    static public function ctrMostrarClientes($item, $valor) {
         $tabla = "clientes";
-
         $respuesta = ModeloClientes::mdlMostrarClientes($tabla, $item, $valor);
-
         return $respuesta;
     }
-
     
     /* EDITAR CLIENTE */
-
-    public static function ctrEditarCliente()
-    {
+    static public function ctrEditarCliente() {
         if (isset($_POST["editarCliente"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCliente"]) &&
                preg_match('/^[0-9]+$/', $_POST["editarDocumentoId"]) &&
@@ -91,8 +84,7 @@ class ControladorClientes
                                "documento"=>$_POST["editarDocumentoId"],
                                "email"=>$_POST["editarEmail"],
                                "telefono"=>$_POST["editarTelefono"],
-                               "direccion"=>$_POST["editarDireccion"],
-                               "fecha_nacimiento"=>$_POST["editarFechaNacimiento"]);
+                               "direccion"=>$_POST["editarDireccion"]);
 
                 $respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
 
@@ -106,9 +98,7 @@ class ControladorClientes
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
-
-									window.location = "clientes";
-
+									    window.location = "clientes";
 									}
 								})
 
@@ -124,12 +114,9 @@ class ControladorClientes
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
-
-							window.location = "clientes";
-
+							    window.location = "clientes";
 							}
 						})
-
 			  	</script>';
             }
         }
@@ -137,9 +124,7 @@ class ControladorClientes
     
 
     /* ELIMINAR CLIENTE */
-
-    public static function ctrEliminarCliente()
-    {
+    static public function ctrEliminarCliente() {
         if (isset($_GET["idCliente"])) {
             $tabla ="clientes";
             $datos = $_GET["idCliente"];
@@ -157,12 +142,9 @@ class ControladorClientes
                       closeOnConfirm: false
 					  }).then(function(result){
 								if (result.value) {
-
-								window.location = "clientes";
-
+								    window.location = "clientes";
 								}
 							})
-
 				</script>';
             }
         }
